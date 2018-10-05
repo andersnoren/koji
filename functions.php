@@ -993,27 +993,7 @@ endif;
 if ( ! function_exists( 'koji_block_editor_styles' ) ) :
 
 	function koji_block_editor_styles() {
-
-		$dependencies = array();
-
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'lingonberry' );
-
-		if ( 'off' !== $google_fonts ) {
-
-			// Register Google Fonts
-			wp_register_style( 'lingonberry-block-editor-styles-font', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Raleway:700,400', false, 1.0, 'all' );
-			$dependencies[] = 'lingonberry-block-editor-styles-font';
-
-		}
-
-		// Enqueue the editor styles
-		wp_enqueue_style( 'lingonberry-block-editor-styles', get_theme_file_uri( '/lingonberry-gutenberg-editor-style.css' ), $dependencies, '1.0', 'all' );
-
+		wp_enqueue_style( 'koji-block-editor-styles', get_template_directory_uri() . '/koji-gutenberg-editor-style.css', array(), '1.0', 'all' );
 	}
 	add_action( 'enqueue_block_editor_assets', 'koji_block_editor_styles', 1 );
 
