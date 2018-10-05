@@ -75,7 +75,7 @@ Source: https://feathericons.com
 
 == Changelog ==
 
-Version 1.00 (2018-10-05)
+Version 1.01 (2018-10-05)
 -------------------------
 - Escaped $ajax_url
 
