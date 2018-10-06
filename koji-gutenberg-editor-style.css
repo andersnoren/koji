@@ -23,6 +23,12 @@ body.gutenberg-editor-page .edit-post-visual-editor .editor-block-list__block {
     max-width: 550px;
 }
 
+body.gutenberg-editor-page .editor-block-list__block[data-align="wide"],
+body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
 body.gutenberg-editor-page .editor-block-list__block[data-align="wide"] {
     max-width: 1070px;
 }
@@ -84,6 +90,31 @@ p.has-drop-cap:not(:focus):first-letter {
 }
 
 
+/* Monospace -------------------------------------- */
+
+.edit-post-visual-editor code, 
+.edit-post-visual-editor kbd, 
+.edit-post-visual-editor pre, 
+.edit-post-visual-editor samp {
+	font-family: Menlo, monospace !important;
+}
+
+kbd,
+pre,
+samp {
+	background: #F0F1F2;
+	border-radius: .2rem;
+	font-size: .9em;
+	padding: .4rem .6rem;
+}
+
+pre {
+	border-radius: .4rem;
+	line-height: 1.5;
+	padding: 1em;
+}
+
+
 /* Custom Text Sizes -------------------------------------- */
 
 
@@ -95,6 +126,10 @@ p.has-drop-cap:not(:focus):first-letter {
 
 /* Post Media --------------------------------------------- */
 
+
+figure {
+	margin: 0;
+}
 
 .alignleft,
 .alignright {
@@ -232,6 +267,9 @@ hr.wp-block-separator {
 
 /* Block: Quote -------------------------------------------- */
 
+blockquote {
+	margin: 0;
+}
 
 .wp-block-quote:not(.is-large):not(.is-style-large) {
 	border: none;
@@ -252,10 +290,10 @@ hr.wp-block-separator {
 }
 
 cite,
-.wp-block-quote.is-large cite, 
-.wp-block-quote.is-large footer, 
-.wp-block-quote.is-style-large cite, 
-.wp-block-quote.is-style-large footer {
+.wp-block-quote__citation, 
+.wp-block-quote cite, 
+.wp-block-quote footer {
+	color: inherit;
 	font-size: 0.9em;
 	font-weight: 600;
 	text-align: left;
@@ -285,12 +323,34 @@ body.gutenberg-editor-page .wp-block-cover-image p {
 /* Block: Pullquote ---------------------------------------- */
 
 
-.wp-block-pullquote cite {
-	font-size: .8em;
-	font-style: normal;
-	font-weight: 700;
+.wp-block-pullquote {
+	border: none;
+	padding: 0;
+	text-align: left;
 }
 
+body.gutenberg-editor-page .editor-block-list__block .wp-block-pullquote p {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.wp-block-pullquote__citation, 
+.wp-block-pullquote cite, 
+.wp-block-pullquote footer {
+	font-size: .9em;
+	font-style: normal;
+	font-weight: 600;
+	text-transform: none;
+}
+
+
+/* Block: Verse ------------------------------------------- */
+
+.wp-block-verse pre, 
+pre.wp-block-verse {
+	font-size: 0.8em;
+}
 
 /* Block: Button ------------------------------------------- */
 

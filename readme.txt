@@ -75,6 +75,13 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.02 (2018-10-06)
+-------------------------
+- Fixed grammatical error in the theme description
+- Updated theme description with link to demo site
+- Adjusted Gutenberg blockquote styling
+- Updated Gutenberg editor styles
+
 Version 1.01 (2018-10-05)
 -------------------------
 - Escaped $ajax_url
