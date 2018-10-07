@@ -1975,7 +1975,6 @@ ul.site-nav ul {
 }
 
 
-
 /* Block: Button --------------------------------------- */
 
 .entry-content .wp-block-file__button,
@@ -2036,6 +2035,14 @@ ul.site-nav ul {
 .wp-block-cover-image p {
 	font-weight: 300;
 }
+
+
+/* Block: Audio --------------------------------------- */
+
+.wp-block-audio audio {
+	width: 100%;
+}
+
 
 /* Block: File --------------------------------------- */
 

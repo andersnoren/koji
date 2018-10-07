@@ -75,7 +75,7 @@ Source: https://feathericons.com
 
 == Changelog ==
 
-Version 1.03 (2018-10-XX)
+Version 1.03 (2018-10-07)
 -------------------------
 - More Gutenberg pull quote fixes
 - Additional Gutenberg editor style fixes
