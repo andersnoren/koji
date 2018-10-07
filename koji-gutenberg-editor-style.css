@@ -23,6 +23,11 @@ body.gutenberg-editor-page .edit-post-visual-editor .editor-block-list__block {
     max-width: 550px;
 }
 
+.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit,
+.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit {
+	max-width: 50%;
+}
+
 body.gutenberg-editor-page .editor-block-list__block[data-align="wide"],
 body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
 	margin-bottom: 50px;
@@ -134,7 +139,7 @@ figure {
 .alignleft,
 .alignright {
 	margin-bottom: 1.2em;
-	max-width: 40%;
+	max-width: 50%;
 }
 
 .wp-caption .alignleft,
@@ -142,15 +147,8 @@ figure {
 	margin-bottom: 0;
 }
 
-.alignleft {
-	float: left;
-	margin-right: 1em;
-}
-
-.alignright {
-	float: right;
-	margin-left: 1em;
-}
+.alignleft { margin-right: 1em; }
+.alignright { margin-left: 1em; }
 
 .editor-writing-flow figcaption {
 	color: #69737D;
@@ -278,6 +276,7 @@ blockquote {
 
 .wp-block-quote {
 	border-left: 2px solid #DCDFE2;
+	color: inherit;
 	margin: 0 0 1.25em 0;
 	padding: .25em 0 .25em 1.5em;
 }
@@ -299,6 +298,10 @@ cite,
 	text-align: left;
 }
 
+.wp-block-quote p {
+	color: inherit;
+}
+
 .wp-block-quote.is-large p, 
 .wp-block-quote.is-style-large p {
 	font-size: 1.33em;
@@ -309,10 +312,6 @@ cite,
 
 /* Block: Cover Image ---------------------------------------- */
 
-
-body.gutenberg-editor-page .wp-block-cover-image {
-	min-height: 75vh;
-}
 
 body.gutenberg-editor-page .wp-block-cover-image p {
 	font-size: 2em;
@@ -329,15 +328,26 @@ body.gutenberg-editor-page .wp-block-cover-image p {
 	text-align: left;
 }
 
+.wp-block-pullquote.alignleft,
+.wp-block-pullquote.alignright {
+	max-width: 50%;
+}
+
 body.gutenberg-editor-page .editor-block-list__block .wp-block-pullquote p {
-	font-size: 24px;
 	font-weight: 500;
 	line-height: 1.4;
+}
+
+body.gutenberg-editor-page .editor-block-list__block .wp-block-pullquote p,
+.editor-block-list__block[data-type="core/pullquote"][data-align=right] .editor-rich-text p,
+.editor-block-list__block[data-type="core/pullquote"][data-align=left] .editor-rich-text p {
+	font-size: 24px;
 }
 
 .wp-block-pullquote__citation, 
 .wp-block-pullquote cite, 
 .wp-block-pullquote footer {
+	color: inherit;
 	font-size: .9em;
 	font-style: normal;
 	font-weight: 600;

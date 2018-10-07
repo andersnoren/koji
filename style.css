@@ -2,7 +2,7 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 1.02
+	Version: 1.03
 	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Gutenberg support, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://www.andersnoren.se/themes/koji/
 	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio
 	Author: Anders Norén
@@ -391,13 +391,13 @@ object {
 	max-width: 50%;
 }
 
-.wp-block-image .alignleft,
+.wp-block-image.alignleft,
 .alignleft {
 	float: left;
 	margin-right: 2.5rem;
 }
 
-.wp-block-image .alignright,
+.wp-block-image.alignright,
 .alignright {
 	float: right;
 	margin-left: 2.5rem;
@@ -1938,6 +1938,7 @@ ul.site-nav ul {
 
 .entry-content .wp-block-pullquote blockquote {
 	border: none;
+	margin: 0;
 	padding: 0;
 }
 
@@ -1965,6 +1966,14 @@ ul.site-nav ul {
 	line-height: 1.4;
 	margin-bottom: 1em;
 }
+
+
+/* Block: Column --------------------------------------- */
+
+.wp-block-column {
+	padding: 0 .5rem;
+}
+
 
 
 /* Block: Button --------------------------------------- */
@@ -2603,8 +2612,8 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	.entry-content .gallery-columns-8 .gallery-item { width: 12.5%; }
 	.entry-content .gallery-columns-9 .gallery-item { width: 11.1%; }
 
-	.entry-content .wp-block-pullquote.alignleft p,
-	.entry-content .wp-block-pullquote.alignright p {
+
+	.entry-content .wp-block-pullquote {
 		font-size: 2.4rem;
 	}
 
