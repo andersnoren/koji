@@ -1,6 +1,8 @@
 <?php
 
-if ( is_single() ) :
+$disable_related_posts = get_theme_mod( 'koji_disable_related_posts' );
+
+if ( is_single() && ! $disable_related_posts ) :
 
 	$related_post_ids = array();
 

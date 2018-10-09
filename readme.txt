@@ -75,6 +75,13 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.04 (2018-10-09)
+-------------------------
+- Added an option for disabling the fallback image
+- Added an option for disabling the related posts
+- Added an option for using low-resolution images in previews
+- Fixed overflow in the mobile menu
+
 Version 1.03 (2018-10-07)
 -------------------------
 - More Gutenberg pull quote fixes

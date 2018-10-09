@@ -26,6 +26,10 @@ if ( ! function_exists( 'koji_setup' ) ) :
 		// Set post thumbnail size
 		set_post_thumbnail_size( 1870, 9999 );
 
+		// Add image sizes
+		add_image_size( 'koji_preview_image_low_resolution', 400, 9999, false );
+		add_image_size( 'koji_preview_image_high_resolution', 800, 9999, false );
+
 		// Custom logo
 		add_theme_support( 'custom-logo', array(
 			'height'      => 200,
@@ -348,6 +352,12 @@ if ( ! function_exists( 'koji_get_fallback_image_url' ) ) :
 
 	function koji_get_fallback_image_url() {
 
+		$disable_fallback_image = get_theme_mod( 'koji_disable_fallback_image' );
+
+		if ( $disable_fallback_image ) {
+			return '';
+		}
+
 		$fallback_image_id = get_theme_mod( 'koji_fallback_image' );
 
 		if ( $fallback_image_id ) {
@@ -378,6 +388,31 @@ if ( ! function_exists( 'koji_the_fallback_image' ) ) :
 		}
 
 		echo '<img src="' . $fallback_image_url . '" class="fallback-featured-image" />';
+
+	}
+
+endif;
+
+
+/* ---------------------------------------------------------------------------------------------
+   GET THE IMAGE SIZE OF PREVIEWS
+   --------------------------------------------------------------------------------------------- */
+
+if ( ! function_exists( 'koji_get_preview_image_size' ) ) :
+
+	function koji_get_preview_image_size() {
+
+		// Check if low-resolution images are activated in the customizer
+		$low_res_images = get_theme_mod( 'koji_activate_low_resolution_images' );
+
+		// If they are, we're using the low resolution image size
+		if ( $low_res_images ) {
+			return 'koji_preview_image_low_resolution';
+
+		// If not, we're using the high resolution image size
+		} else {
+			return 'koji_preview_image_high_resolution';
+		}
 
 	}
 
@@ -723,43 +758,64 @@ if ( ! class_exists( 'Koji_Customize' ) ) :
 			) );
 
 			/* ------------------------------------
-			* General Theme Options
-			* ------------------------------------ */
+			 * Fallback Image Options
+			 * ------------------------------------ */
 
-			$wp_customize->add_section( 'koji_general_theme_options', array(
-				'title' 		=> __( 'Theme Options', 'koji' ),
-				'priority' 		=> 35,
+			$wp_customize->add_section( 'koji_image_options', array(
+				'title' 		=> __( 'Images', 'koji' ),
+				'priority' 		=> 40,
 				'capability' 	=> 'edit_theme_options',
-				'description' 	=> __( 'General theme settings for Koji.', 'koji' ),
+				'description' 	=> __( 'Settings for images in Koji.', 'koji' ),
+			) );
+
+			// Activate low-resolution images setting
+			$wp_customize->add_setting( 'koji_activate_low_resolution_images', array(
+				'capability' 		=> 'edit_theme_options',
+				'sanitize_callback' => 'koji_sanitize_checkbox'
+			) );
+
+			$wp_customize->add_control( 'koji_activate_low_resolution_images', array(
+				'type' 			=> 'checkbox',
+				'section' 		=> 'koji_image_options',
+				'priority'		=> 5,
+				'label' 		=> __( 'Use Low-Resolution Images', 'koji' ),
+				'description'	=> __( 'Checking this will decrease load times, but also make images look less sharp on high-resolution screens.', 'koji' ),
 			) );
 
 			// Fallback image setting
 			$wp_customize->add_setting( 'koji_fallback_image', array(
 				'capability' 		=> 'edit_theme_options',
-				'sanitize_callback' => 'absint',
-				'transport'			=> 'postMessage',
+				'sanitize_callback' => 'absint'
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'koji_fallback_image', array(
-				'label'			=> __( 'Fallback image', 'koji' ),
-				'description'	=> __( 'The selected image will be used when a post or product is missing a featured image. A default fallback image included in the theme will be used if no image is set.', 'koji' ),
+				'label'			=> __( 'Fallback Image', 'koji' ),
+				'description'	=> __( 'The selected image will be used when a post is missing a featured image. A default fallback image included in the theme will be used if no image is set.', 'koji' ),
+				'priority'		=> 10,
 				'mime_type'		=> 'image',
-				'section' 		=> 'koji_general_theme_options',
+				'section' 		=> 'koji_image_options',
 			) ) );
 
-			// Update fallback image setting with selective refresh
-			$wp_customize->selective_refresh->add_partial( 'koji_fallback_image', array(
-				'selector' 			=> '.fallback-featured-image',
-				'settings' 			=> array( 'koji_fallback_image' ),
+			// Disable fallback image setting
+			$wp_customize->add_setting( 'koji_disable_fallback_image', array(
+				'capability' 		=> 'edit_theme_options',
+				'sanitize_callback' => 'koji_sanitize_checkbox'
+			) );
+
+			$wp_customize->add_control( 'koji_disable_fallback_image', array(
+				'type' 			=> 'checkbox',
+				'section' 		=> 'koji_image_options',
+				'priority'		=> 15,
+				'label' 		=> __( 'Disable Fallback Image', 'koji' )
 			) );
 
 			/* ------------------------------------
-			* Post Meta Options
-			* ------------------------------------ */
+			 * Post Meta Options
+			 * ------------------------------------ */
 
 			$wp_customize->add_section( 'koji_post_meta_options', array(
 				'title' 		=> __( 'Post Meta', 'koji' ),
-				'priority' 		=> 40,
+				'priority' 		=> 41,
 				'capability' 	=> 'edit_theme_options',
 				'description' 	=> __( 'Choose which meta information to display in Koji.', 'koji' ),
 			) );
@@ -785,7 +841,7 @@ if ( ! class_exists( 'Koji_Customize' ) ) :
 
 			$wp_customize->add_control( new Koji_Customize_Control_Checkbox_Multiple( $wp_customize, 'koji_post_meta_single', array(
 				'section' 		=> 'koji_post_meta_options',
-				'label'   		=> __( 'Post meta on single:', 'koji' ),
+				'label'   		=> __( 'Post Meta On Single:', 'koji' ),
 				'description'	=> __( 'Select the post meta values to show on single posts.', 'koji' ),
 				'choices' 		=> $post_meta_choices,
 			) ) );
@@ -799,14 +855,14 @@ if ( ! class_exists( 'Koji_Customize' ) ) :
 
 			$wp_customize->add_control( new Koji_Customize_Control_Checkbox_Multiple( $wp_customize, 'koji_post_meta_preview', array(
 				'section' 		=> 'koji_post_meta_options',
-				'label'   		=> __( 'Post meta in previews:', 'koji' ),
+				'label'   		=> __( 'Post Meta In Previews:', 'koji' ),
 				'description'	=> __( 'Select the post meta values to show in previews.', 'koji' ),
 				'choices' 		=> $post_meta_choices,
 			) ) );
 
 			/* ------------------------------------
-			* Pagination Options
-			* ------------------------------------ */
+			 * Pagination Options
+			 * ------------------------------------ */
 
 			$wp_customize->add_section( 'koji_pagination_options', array(
 				'title' 		=> __( 'Pagination', 'koji' ),
@@ -835,8 +891,8 @@ if ( ! class_exists( 'Koji_Customize' ) ) :
 			) );
 
 			/* ------------------------------------
-			* Search Options
-			* ------------------------------------ */
+			 * Search Options
+			 * ------------------------------------ */
 
 			$wp_customize->add_section( 'koji_search_options', array(
 				'title' 		=> __( 'Search', 'koji' ),
@@ -856,8 +912,34 @@ if ( ! class_exists( 'Koji_Customize' ) ) :
 				'type' 			=> 'checkbox',
 				'section' 		=> 'koji_search_options',
 				'priority'		=> 10,
-				'label' 		=> __( 'Disable Search', 'koji' ),
+				'label' 		=> __( 'Disable Search Toggle', 'koji' ),
 				'description' 	=> __( 'Check to remove the search toggle from the row of icons.', 'koji' ),
+			) );
+
+			/* ------------------------------------
+			 * Related Posts Options
+			 * ------------------------------------ */
+
+			$wp_customize->add_section( 'koji_related_posts_options', array(
+				'title' 		=> __( 'Related Posts', 'koji' ),
+				'priority' 		=> 60,
+				'capability' 	=> 'edit_theme_options',
+				'description' 	=> '',
+			) );
+
+			/* Disable Related Posts Setting ----------------------------- */
+
+			$wp_customize->add_setting( 'koji_disable_related_posts', array(
+				'capability' 		=> 'edit_theme_options',
+				'sanitize_callback' => 'koji_sanitize_checkbox',
+			) );
+
+			$wp_customize->add_control( 'koji_disable_related_posts', array(
+				'type' 			=> 'checkbox',
+				'section' 		=> 'koji_related_posts_options',
+				'priority'		=> 10,
+				'label' 		=> __( 'Disable Related Posts', 'koji' ),
+				'description' 	=> __( 'Check to hide the related posts section on single posts.', 'koji' ),
 			) );
 
 			/* Sanitation functions ----------------------------- */

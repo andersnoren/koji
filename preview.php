@@ -2,17 +2,26 @@
 
 	<div class="preview-wrapper">
 
-		<a href="<?php the_permalink(); ?>" class="preview-image">
+		<?php
 
-			<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail( 'large' );
-			} else {
-				echo '<img class="fallback-image" src="' . koji_get_fallback_image_url() . '" />';
-			}
-			?>
-			
-		</a>
+		$fallback_image_url = koji_get_fallback_image_url();
+
+		if ( has_post_thumbnail() || $fallback_image_url ) : ?>
+
+			<a href="<?php the_permalink(); ?>" class="preview-image">
+
+				<?php
+				if ( has_post_thumbnail() ) {
+					$image_size = koji_get_preview_image_size();
+					the_post_thumbnail( $image_size );
+				} else {
+					echo '<img class="fallback-image" src="' . $fallback_image_url . '" />';
+				}
+				?>
+				
+			</a>
+
+		<?php endif; ?>
 
 		<div class="preview-inner">
 
