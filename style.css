@@ -2,7 +2,7 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 1.04
+	Version: 1.06
 	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Gutenberg support, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://www.andersnoren.se/themes/koji/
 	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio
 	Author: Anders Norén
@@ -157,6 +157,17 @@ body a {
 
 /* Fonts ------------------------------------- */
 
+@font-face {
+	font-family: 'Font Awesome 5';
+	font-style: normal;
+	font-weight: normal;
+	src: url( ./assets/font-awesome/fonts/fa-solid-900.eot );
+	src: url( ./assets/font-awesome/fonts/fa-solid-900.eot?#iefix ) format( 'embedded-opentype' ), 
+		 url( ./assets/font-awesome/fonts/fa-solid-900.woff2 ) format( 'woff2' ),
+		 url( ./assets/font-awesome/fonts/fa-solid-900.woff ) format( 'woff' ),
+		 url( ./assets/font-awesome/fonts/fa-solid-900.ttf ) format( 'truetype' ),
+		 url( ./assets/font-awesome/fonts/fa-solid-900.svg#fontawesome ) format( 'svg' )
+}
 
 @font-face {
 	font-family: 'Font Awesome 5 Brands';
@@ -788,6 +799,7 @@ a {
 
 ul.social-icons {
 	display: flex;
+	flex-wrap: wrap;
 	margin: 0 0 -1.2rem -1.2rem;
 }
 
@@ -818,59 +830,61 @@ ul.social-icons li {
 }
 
 .social-icons a::before {
-	content: '\f408';
+	content: '\f0c1';
 	display: block;
-	font-family: 'Font Awesome 5 Brands';
-	font-size: 2rem;
+	font-family: 'Font Awesome 5';
+	font-size: 1.9rem;
 }
 
-.s-icons a[href*="500px.com"]::before { content: '\f26e'; }
-.s-icons a[href*="amazon.com"]::before { content: '\f270'; }
-.s-icons a[href*="angel.co"]::before { content: '\f209'; }
-.s-icons a[href*="audible.com"]::before { content: '\f373'; }
-.s-icons a[href*="behance.net"]::before { content: '\f1b4'; }
-.s-icons a[href*="blogger.com"]::before { content: '\f37d'; }
-.s-icons a[href*="codepen.io"]::before { content: '\f1cb'; }
-.s-icons a[href*="creativecommons.com"]::before { content: '\f25e'; }
-.s-icons a[href*="deviantart.com"]::before { content: '\f1bd'; }
-.s-icons a[href*="digg.com"]::before { content: '\f1a6'; }
-.s-icons a[href*="discordapp.com"]::before { content: '\f392'; }
-.s-icons a[href*="dribbble.com"]::before { content: '\f17d'; }
-.s-icons a[href*="ebay"]::before { content: '\f4f4'; }
-.s-icons a[href*="etsy.com"]::before { content: '\f2d7'; }
-.s-icons a[href*="facebook.com"]::before { content: '\f39e'; }
-.s-icons a[href*="flickr.com"]::before { content: '\f16e'; }
-.s-icons a[href*="github.com"]::before { content: '\f113'; }
-.s-icons a[href*="gitlab.com"]::before { content: '\f296'; }
-.s-icons a[href*="goodreads.com"]::before { content: '\f3a9'; }
-.s-icons a[href*="houzz"]::before { content: '\f27c'; }
-.s-icons a[href*="imdb.com"]::before { content: '\f2d8'; }
-.s-icons a[href*="instagram.com"]::before { content: '\f16d'; }
-.s-icons a[href*="kickstarter.com"]::before { content: '\f3bc'; }
-.s-icons a[href*="jsfiddle.net"]::before { content: '\f1cc'; }
-.s-icons a[href*="linkedin.com"]::before { content: '\f0e1'; }
-.s-icons a[href*="last.fm"]::before { content: '\f202'; }
-.s-icons a[href*="medium.com"]::before { content: '\f3c7'; }
-.s-icons a[href*="mixcloud.com"]::before { content: '\f289'; }
-.s-icons a[href*="patreon.com"]::before { content: '\f3d9'; }
-.s-icons a[href*="pscp.tv"]::before { content: '\f3da'; }
-.s-icons a[href*="pinterest.com"]::before { content: '\f231'; }
-.s-icons a[href*="play.google.com"]::before { content: '\f3ab'; }
-.s-icons a[href*="plus.google.com"]::before { content: '\f0d5'; }
-.s-icons a[href*="producthunt.com"]::before { content: '\f288'; }
-.s-icons a[href*="quora.com"]::before { content: '\f2c4'; }
-.s-icons a[href*="reddit.com"]::before { content: '\f281'; }
-.s-icons a[href*="slack.com"]::before { content: '\f198'; }
-.s-icons a[href*="soundcloud.com"]::before { content: '\f1be'; }
-.s-icons a[href*="spotify.com"]::before { content: '\f1bc'; }
-.s-icons a[href*="tumblr.com"]::before { content: '\f173'; }
-.s-icons a[href*="twitch.tv"]::before { content: '\f1e8'; }
-.s-icons a[href*="twitter.com"]::before { content: '\f099'; }
-.s-icons a[href*="vimeo.com"]::before { content: '\f27d'; }
+.s-icons a[href*="500px.com"]::before { content: '\f26e'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="amazon.com"]::before { content: '\f270'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="angel.co"]::before { content: '\f209'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="audible.com"]::before { content: '\f373'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="behance.net"]::before { content: '\f1b4'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="blogger.com"]::before { content: '\f37d'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="codepen.io"]::before { content: '\f1cb'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="creativecommons.com"]::before { content: '\f25e'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="deviantart.com"]::before { content: '\f1bd'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="digg.com"]::before { content: '\f1a6'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="discordapp.com"]::before { content: '\f392'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="dribbble.com"]::before { content: '\f17d'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="ebay"]::before { content: '\f4f4'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="etsy.com"]::before { content: '\f2d7'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="facebook.com"]::before { content: '\f39e'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="flickr.com"]::before { content: '\f16e'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="github.com"]::before { content: '\f113'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="gitlab.com"]::before { content: '\f296'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="goodreads.com"]::before { content: '\f3a9'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="houzz"]::before { content: '\f27c'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="imdb.com"]::before { content: '\f2d8'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="instagram.com"]::before { content: '\f16d'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="kickstarter.com"]::before { content: '\f3bc'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="jsfiddle.net"]::before { content: '\f1cc'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="linkedin.com"]::before { content: '\f0e1'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="last.fm"]::before { content: '\f202'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="medium.com"]::before { content: '\f3c7'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="mixcloud.com"]::before { content: '\f289'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="patreon.com"]::before { content: '\f3d9'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="pscp.tv"]::before { content: '\f3da'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="pinterest.com"]::before { content: '\f231'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="play.google.com"]::before { content: '\f3ab'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="plus.google.com"]::before { content: '\f0d5'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="producthunt.com"]::before { content: '\f288'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="quora.com"]::before { content: '\f2c4'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="reddit.com"]::before { content: '\f281'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="slack.com"]::before { content: '\f198'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="soundcloud.com"]::before { content: '\f1be'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="spotify.com"]::before { content: '\f1bc'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="tumblr.com"]::before { content: '\f173'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="twitch.tv"]::before { content: '\f1e8'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="twitter.com"]::before { content: '\f099'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="vimeo.com"]::before { content: '\f27d'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="wordpress.org"]::before,
-.s-icons a[href*="wordpress.com"]::before { content: '\f411'; }
-.s-icons a[href*="youtube.com"]::before { content: '\f167'; }
-.s-icons a[href*="mailto"]::before { content: '\f0e0'; }
+.s-icons a[href*="wordpress.com"]::before { content: '\f411'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="youtube.com"]::before { content: '\f167'; font-family: 'Font Awesome 5 Brands'; }
+
+.s-icons a[href*="unsplash.com"]::before { content: '\f030'; font-family: 'Font Awesome 5'; }
+.s-icons a[href*="mailto"]::before { content: '\f0e0'; font-family: 'Font Awesome 5'; }
 
 
 /* Post Meta ----------------------------- */
@@ -2621,7 +2635,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	.entry-content .gallery-columns-9 .gallery-item { width: 11.1%; }
 
 
-	.entry-content .wp-block-pullquote {
+	.entry-content .wp-block-pullquote p {
 		font-size: 2.4rem;
 	}
 

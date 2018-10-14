@@ -75,6 +75,18 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.06 (2018-10-14)
+-------------------------
+- Added the FontAwesome Solid font to enable more icons:
+	- Unsplash
+	- mailto:
+	- Fallback icon for links without matching URLs
+- Fixed the social icons list not wrapping
+
+Version 1.05 (2018-10-10)
+-------------------------
+- Fixed the font size of the cite element when included in a pullquote
+
 Version 1.04 (2018-10-09)
 -------------------------
 - Added an option for disabling the fallback image
