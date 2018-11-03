@@ -73,7 +73,7 @@ if ( ! function_exists( 'koji_load_style' ) ) :
 
 			$dependencies = array( 'koji-fontawesome' );
 
-			wp_enqueue_style( 'koji-style', get_template_directory_uri() . '/style.css', $dependencies );
+			wp_enqueue_style( 'koji-style', get_stylesheet_uri(), $dependencies );
 		endif;
 	}
 	add_action( 'wp_enqueue_scripts', 'koji_load_style' );
