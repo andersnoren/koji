@@ -78,6 +78,7 @@ Source: https://feathericons.com
 Version 1.08 (2018-11-04)
 -------------------------
 - Added an additional widget area, which is displayed in the toggleable menu on mobile and in the sidebar on desktop
+- Updated theme tags to indicate footer widget support
 
 Version 1.07 (2018-11-04)
 -------------------------
