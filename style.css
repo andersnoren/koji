@@ -2,8 +2,8 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 1.06
-	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Gutenberg support, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://www.andersnoren.se/themes/koji/
+	Version: 1.07
+	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Gutenberg support, three widget areas in the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://www.andersnoren.se/themes/koji/
 	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio
 	Author: Anders Norén
 	Author URI: http://www.andersnoren.se
@@ -2201,21 +2201,217 @@ html.js body:not(.pagination-type-links) .link-pagination {
 
 #site-footer {
 	padding: 3rem 0;
+	position: relative;
 }
 
-#site-footer p {
+
+/* Footer Widgets ------------------------------- */
+
+.footer-widgets-outer-wrapper {
+	padding: 1rem 0 4rem;
+}
+
+.footer-widgets-wrapper {
+	margin: -3rem 0 0;
+}
+
+.footer-widgets,
+.widget {
+	margin: 3rem 0 0;
+}
+
+.widget:first-child {
+	margin-top: 0;
+}
+
+
+/* Footer Credits ------------------------------- */
+
+.credits {
 	color: #9BA5AF;
 	font-size: 1.4rem;
 	font-weight: 500;
 	text-align: center;
 }
 
-#site-footer a {
+.credits a {
 	text-decoration: none;
 }
 
-#site-footer a:hover {
+.credits a:hover {
 	color: #4B555F;
+}
+
+
+/* -------------------------------------------------------------------------------- */
+/*	X.	Widgets
+/* -------------------------------------------------------------------------------- */
+
+
+/* Widget Base ------------------------------- */
+
+.widget-content {
+	color: #4B555F;
+	font-size: 1.7rem;
+}
+
+.widget-title {
+	color: #69737D;
+	font-size: 1.6rem;
+	font-variant-caps: small-caps;
+	font-weight: 500;
+	margin-bottom: 1.5rem;
+	text-transform: lowercase;
+}
+
+.widget ul,
+.widget ol {
+	list-style: none;
+}
+
+.widget li {
+	margin-top: 1.4rem;
+}
+
+.widget li > ul, 
+.widget li > ol {
+	margin-top: 0;
+}
+
+.widget-content > ul,
+.widget-content > ol {
+	margin-left: 0;
+}
+
+
+/* Base List Widget ------------------------------- */
+
+.widget_archive li,
+.widget_categories li,
+.widget_pages li,
+.widget_meta li,
+.widget_nav_menu li {
+	margin: 0 !important;
+}
+
+
+/* Widget: Recent Entries ------------------------------- */
+
+.widget_recent_entries a {
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.widget_recent_entries a:hover {
+	text-decoration: underline;
+}
+
+.widget_recent_entries .post-date {
+	color: #69737D;
+	margin-top: .2rem;
+}
+
+
+/* Widget: Recent Comments ------------------------------- */
+
+.widget_recent_comments .comment-author-link a {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+/* Widget: Gallery ------------------------------- */
+
+.widget_media_gallery .gallery {
+	margin: 0 -.4em -.8em -.4em;
+	width: calc( 100% + .8em );
+}
+
+.widget_media_gallery .gallery-item {
+	margin: 0 0 .8em 0;
+	padding: 0 .4em;
+}
+
+
+/* Widget: Nav Menu ------------------------------- */
+
+.widget_nav_menu .widget-content > div > ul {
+	margin-left: 0;
+}
+
+
+/* Widget: Recent Posts ------------------------------- */
+
+.widget_recent_entries .post-date {
+	display: block;
+}
+
+
+/* Widget: RSS ------------------------------- */
+
+.widget_rss .rss-widget-icon {
+	display: none;
+}
+
+.widget_rss .rsswidget {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.widget_rss .rss-date {
+	display: block;
+}
+
+.widget_rss cite:before {
+	content: "— ";
+}
+
+
+/* Widget: Search ------------------------------- */
+
+.widget_search label,
+.widget_search img {
+	display: none;
+}
+
+.widget_search .search-form {
+	align-items: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 0 -.8rem -.8rem;
+}
+
+.widget_search .search-field,
+.widget_search .search-submit {
+	margin: 0 0 .8rem .8rem;
+}
+
+.widget_search .search-field {
+	max-width: 100%;
+	width: 30rem;
+}
+
+
+/* Widget: Tag Cloud ------------------------------- */
+
+.widget_tag_cloud .tagcloud {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 0 -.4rem -.4rem;
+}
+.widget_tag_cloud a {
+	background: #9BA5AF;
+	border-radius: .3rem;
+	color: #fff;
+	display: block;
+	font-size: 1.3rem !important;
+	font-weight: 600;
+	margin: 0 0 .4rem .4rem;
+	padding: .4rem .7rem .5rem;
+	text-decoration: none;
+}
+
+.widget_tag_cloud a:hover {
+	background: #69737D;
 }
 
 
@@ -2650,6 +2846,30 @@ html.js body:not(.pagination-type-links) .link-pagination {
 }
 
 
+@media ( min-width: 750px ) {
+
+
+	/* Site Footer ------------------------------- */
+
+	.footer-widgets-outer-wrapper {
+		padding: 2rem 0 5rem;
+	}
+
+	.footer-widgets-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -3rem 0 0 -3rem;
+	}
+
+	.footer-widgets {
+		margin: 3rem 0 0 3rem;
+		width: calc( 50% - 3rem );
+	}
+
+
+}
+
+
 @media ( min-width: 1000px ) {
 
 
@@ -2902,6 +3122,32 @@ html.js body:not(.pagination-type-links) .link-pagination {
 		left: calc( 50% - 36.95rem );
 		right: auto;
 		width: 73.9rem;
+	}
+
+	
+	/* Site Footer ------------------------------- */
+
+	.footer-widgets-outer-wrapper {
+		padding: 2rem 0 5rem;
+	}
+
+	.footer-widgets-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -4rem 0 0 -4rem;
+	}
+
+	.footer-widgets {
+		margin: 4rem 0 0 4rem;
+		width: calc( 33.33% - 4rem );
+	}
+
+	.widget {
+		margin-top: 4rem;
+	}
+
+	.widget-title {
+		margin-bottom: 1.8rem;
 	}
 
 }

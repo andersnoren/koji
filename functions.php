@@ -254,6 +254,51 @@ endif;
 
 
 /* ---------------------------------------------------------------------------------------------
+   REGISTER WIDGET AREAS
+   --------------------------------------------------------------------------------------------- */
+
+
+if ( ! function_exists( 'koji_widget_areas' ) ) :
+
+	function koji_widget_areas() {
+
+		register_sidebar( array(
+			'name' 			=> __( 'Footer #1', 'koji' ),
+			'id' 			=> 'footer-one',
+			'description' 	=> __( 'Widgets in this area will be shown in the first footer column.', 'koji' ),
+			'before_title' 	=> '<h3 class="widget-title">',
+			'after_title' 	=> '</h3>',
+			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
+			'after_widget' 	=> '</div><div class="clear"></div></div>',
+		) );
+
+		register_sidebar( array(
+			'name' 			=> __( 'Footer #2', 'koji' ),
+			'id' 			=> 'footer-two',
+			'description' 	=> __( 'Widgets in this area will be shown in the second footer column.', 'koji' ),
+			'before_title' 	=> '<h3 class="widget-title">',
+			'after_title' 	=> '</h3>',
+			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
+			'after_widget' 	=> '</div><div class="clear"></div></div>',
+		) );
+
+		register_sidebar( array(
+			'name' 			=> __( 'Footer #3', 'koji' ),
+			'id' 			=> 'footer-three',
+			'description' 	=> __( 'Widgets in this area will be shown in the third footer column.', 'koji' ),
+			'before_title' 	=> '<h3 class="widget-title">',
+			'after_title' 	=> '</h3>',
+			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
+			'after_widget' 	=> '</div><div class="clear"></div></div>',
+		) );
+
+	}
+	add_action( 'widgets_init', 'koji_widget_areas' );
+
+endif;
+
+
+/* ---------------------------------------------------------------------------------------------
    REMOVE ARCHIVE PREFIXES
    --------------------------------------------------------------------------------------------- */
 

@@ -75,6 +75,11 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.07 (2018-11-04)
+-------------------------
+- Added three widget areas to the site footer
+- Updated theme description
+
 Version 1.06 (2018-10-14)
 -------------------------
 - Added the FontAwesome Solid font to enable more icons:
