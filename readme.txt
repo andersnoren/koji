@@ -75,6 +75,12 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.09 (2018-11-04)
+-------------------------
+- Removed min-width property from buttons
+- Adjusted the widget comment author styling
+- Fixed an issue with sidebar padding
+
 Version 1.08 (2018-11-04)
 -------------------------
 - Added an additional widget area, which is displayed in the toggleable menu on mobile and in the sidebar on desktop

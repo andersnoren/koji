@@ -2,7 +2,7 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 1.07
+	Version: 1.09
 	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Gutenberg support, widget areas in the sidebar and the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://www.andersnoren.se/themes/koji/
 	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets
 	Author: Anders Norén
@@ -611,7 +611,6 @@ input[type="submit"] {
 	font-weight: 600;
 	line-height: 1.2;
 	margin: 0;
-	min-width: 10rem;
 	outline: none;
 	padding: 1.6rem 2.6rem 1.7rem;
 	text-align: center;
@@ -2329,9 +2328,8 @@ html.js body:not(.pagination-type-links) .link-pagination {
 
 /* Widget: Recent Comments ------------------------------- */
 
-.widget_recent_comments .comment-author-link a {
+.widget_recent_comments .comment-author-link {
 	font-weight: 600;
-	text-decoration: none;
 }
 
 /* Widget: Gallery ------------------------------- */
@@ -2928,7 +2926,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 		display: flex;
 		flex-direction: column;
 		justify-content: stretch;
-		padding: 8rem 4rem 6rem 4rem;
+		padding: 8rem 4rem 0 4rem;
 	}
 
 	.header-top {
@@ -3055,7 +3053,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	/* Site Header ------------------------------- */
 
 	#site-header {
-		padding: 12rem 8rem 6rem 8rem;
+		padding: 12rem 8rem 0 8rem;
 	}
 
 	/* Site Navigation ------------------------------- */
