@@ -78,6 +78,14 @@
 							?>
 						</ul>
 
+						<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+
+							<div class="sidebar-widgets">
+								<?php dynamic_sidebar( 'sidebar' ); ?>
+							</div><!-- .sidebar-widgets -->
+
+						<?php endif; ?>
+
 					</div><!-- .header-inner-top -->
 
 					<div class="social-menu-wrapper">
@@ -153,6 +161,14 @@
 							}
 							?>
 						</ul>
+
+						<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+
+							<div class="sidebar-widgets">
+								<?php dynamic_sidebar( 'sidebar' ); ?>
+							</div><!-- .sidebar-widgets -->
+
+						<?php endif; ?>
 
 					</div><!-- .mobile-menu-top -->
 

@@ -75,6 +75,10 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.08 (2018-11-04)
+-------------------------
+- Added an additional widget area, which is displayed in the toggleable menu on mobile and in the sidebar on desktop
+
 Version 1.07 (2018-11-04)
 -------------------------
 - Added three widget areas to the site footer

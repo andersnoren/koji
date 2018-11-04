@@ -263,6 +263,16 @@ if ( ! function_exists( 'koji_widget_areas' ) ) :
 	function koji_widget_areas() {
 
 		register_sidebar( array(
+			'name' 			=> __( 'Sidebar', 'koji' ),
+			'id' 			=> 'sidebar',
+			'description' 	=> __( 'Widgets in this area will be shown below the main menu.', 'koji' ),
+			'before_title' 	=> '<h3 class="widget-title">',
+			'after_title' 	=> '</h3>',
+			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
+			'after_widget' 	=> '</div><div class="clear"></div></div>',
+		) );
+
+		register_sidebar( array(
 			'name' 			=> __( 'Footer #1', 'koji' ),
 			'id' 			=> 'footer-one',
 			'description' 	=> __( 'Widgets in this area will be shown in the first footer column.', 'koji' ),
