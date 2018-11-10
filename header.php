@@ -37,7 +37,7 @@
 
 					<?php endif; ?>
 
-					<div class="toggle nav-toggle" data-toggle-target=".mobile-menu-wrapper" data-toggle-scroll-lock="true">
+					<button class="toggle nav-toggle" data-toggle-target=".mobile-menu-wrapper" data-toggle-scroll-lock="true">
 						<label>
 							<span class="show"><?php _e( 'Menu', 'koji' ); ?></span>
 							<span class="hide"><?php _e( 'Close', 'koji' ); ?></span>
@@ -47,7 +47,7 @@
 							<div class="bar"></div>
 							<div class="bar"></div>
 						</div><!-- .bars -->
-					</div><!-- .nav-toggle -->
+					</button><!-- .nav-toggle -->
 
 				</div><!-- .header-top -->
 
@@ -201,9 +201,9 @@
 
 				<div class="search-overlay cover-modal">
 
-					<div class="toggle search-untoggle" data-toggle-target=".search-overlay">
+					<button class="toggle search-untoggle" data-toggle-target=".search-overlay">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cross.svg" />
-					</div><!-- .search-untoggle -->
+					</button><!-- .search-untoggle -->
 
 					<div class="section-inner search-overlay-form-wrapper">
 						<?php echo get_search_form(); ?>

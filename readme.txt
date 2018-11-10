@@ -75,6 +75,13 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.10 (2018-11-10)
+-------------------------
+- Changed all toggles to button elements, for a11y reasons
+- Adjusted styling of the mobile menu
+- Remove use of smallcaps, to improve the styling in older browsers
+- Set the main element to display: block, to improve IE11 compat
+
 Version 1.09 (2018-11-04)
 -------------------------
 - Removed min-width property from buttons

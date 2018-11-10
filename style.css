@@ -2,7 +2,7 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 1.09
+	Version: 1.10
 	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Gutenberg support, widget areas in the sidebar and the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://www.andersnoren.se/themes/koji/
 	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets
 	Author: Anders Norén
@@ -717,8 +717,15 @@ a {
 
 /* Toggles ----------------------------------- */
 
+button.toggle {
+	background-color: transparent;
+}
+
 .toggle {
+	-webkit-appearance: none;
+	-moz-appearance: none;
 	cursor: pointer;
+	outline: none;
 	position: relative;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -772,11 +779,6 @@ a {
 .slashed-zero {
 	font-feature-settings: "zero";
 	font-variant-numeric: slashed-zero;
-}
-
-.smallcaps {
-	font-variant-caps: small-caps;
-	text-transform: lowercase;
 }
 
 .transform-uppercase {
@@ -1135,8 +1137,8 @@ ul.social-icons li {
 /* Navigation Toggle ------------------------------- */
 
 .nav-toggle {
-	cursor: pointer;
 	height: 5rem;
+	padding: 0;
 	position: absolute;
 		right: 0;
 		top: 50%;
@@ -1213,7 +1215,7 @@ ul.social-icons li {
 	display: flex;
 	opacity: 0;
 	overflow: auto;
-	padding: 9.2rem 0 4.5rem 0;
+	padding: 9.2rem 0 0 0;
 	position: fixed;
 		bottom: 0;
 		left: -99999rem;
@@ -1329,7 +1331,7 @@ ul.site-nav ul {
 .search-overlay .search-field:-ms-input-placeholder { color: inherit; }
 .search-overlay .search-field::-moz-placeholder { color: inherit; }
 
-.search-overlay button {
+.search-overlay .search-form button {
 	display: none;
 }
 
@@ -1561,9 +1563,10 @@ ul.site-nav ul {
 
 .related-posts-title {
 	color: #69737D;
-	font-size: 1.6rem;
-	font-weight: 500;
+	font-size: 1.4rem;
+	font-weight: 600;
 	margin-bottom: 2rem;
+	text-transform: uppercase;
 }
 
 .related-posts .posts {
@@ -2271,11 +2274,10 @@ html.js body:not(.pagination-type-links) .link-pagination {
 
 .widget-title {
 	color: #69737D;
-	font-size: 1.6rem;
-	font-variant-caps: small-caps;
-	font-weight: 500;
+	font-size: 1.4rem;
+	font-weight: 600;
 	margin-bottom: 1.5rem;
-	text-transform: lowercase;
+	text-transform: uppercase;
 }
 
 .widget ul,
@@ -2906,6 +2908,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	}
 
 	#site-content {
+		display: block;
 		padding: 6rem 6rem 0 0;
 		width: 100%;
 	}
