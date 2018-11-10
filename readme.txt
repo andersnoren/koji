@@ -75,6 +75,11 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.11 (2018-11-10)
+-------------------------
+- Added the current theme version as the 'version' param for style.css and construct.js enqueues (thanks, @drivingralle)
+- Updated the enqueue structure of style.css
+
 Version 1.10 (2018-11-10)
 -------------------------
 - Changed all toggles to button elements, for a11y reasons
