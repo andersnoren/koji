@@ -34,9 +34,9 @@ if ( $query_args['max_num_pages'] > $query_args['paged'] ) :
 
 		<div id="pagination" data-query-args="<?php echo esc_attr( $json_query_args ); ?>" data-load-more-target=".load-more-target">
 
-			<button id="load-more" class="mfs-32 tfs-36 dfs-48 color-dark-gray color-black-hover"><?php _e( 'Load more', 'koji' ); ?></button>
+			<button type="button" id="load-more" class="mfs-32 tfs-36 dfs-48 color-dark-gray color-black-hover" aria-controls="posts"><?php _e( 'Load more', 'koji' ); ?></button>
 
-			<p class="out-of-posts"><?php _e( 'Nothing more to load.', 'koji' ); ?></p>
+			<p class="out-of-posts" aria-live="polite" aria-relevant="text"><?php _e( 'Nothing more to load.', 'koji' ); ?></p>
 
 			<div class="loading-icon">
 				<?php koji_loading_indicator(); ?>

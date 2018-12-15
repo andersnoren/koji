@@ -17,7 +17,10 @@
 
 		<div id="site-wrapper">
 
-			<header id="site-header">
+			<header id="site-header" role="banner">
+
+				<a class="skip-link" href="#site-content"><?php _e( 'Skip to the content', 'koji' ); ?></a>
+				<a class="skip-link" href="#main-menu"><?php _e( 'Skip to the main menu', 'koji' ); ?></a>
 
 				<div class="header-top section-inner">
 
@@ -37,7 +40,7 @@
 
 					<?php endif; ?>
 
-					<button class="toggle nav-toggle" data-toggle-target=".mobile-menu-wrapper" data-toggle-scroll-lock="true">
+					<button type="button" aria-pressed="false" class="toggle nav-toggle" data-toggle-target=".mobile-menu-wrapper" data-toggle-scroll-lock="true" data-toggle-attribute="">
 						<label>
 							<span class="show"><?php _e( 'Menu', 'koji' ); ?></span>
 							<span class="hide"><?php _e( 'Close', 'koji' ); ?></span>
@@ -61,7 +64,7 @@
 
 						<?php endif; ?>
 
-						<ul class="site-nav reset-list-style">
+						<ul class="site-nav reset-list-style" id="main-menu" role="navigation">
 							<?php
 							if ( has_nav_menu( 'primary-menu' ) ) {
 								wp_nav_menu( array(
@@ -101,7 +104,7 @@
 
 								<?php if ( ! $disable_search ) : ?>
 
-									<li class="search-toggle-wrapper"><a href="#" data-toggle-target=".search-overlay" data-set-focus=".search-overlay .search-field" class="toggle search-toggle"></a></li>
+									<li class="search-toggle-wrapper"><button type="button" aria-pressed="false" data-toggle-target=".search-overlay" data-set-focus=".search-overlay .search-field" class="toggle search-toggle"><span class="screen-reader-text"><?php _e( 'Toggle the search field', 'koji' ); ?></span></button></li>
 
 									<?php
 								endif;
@@ -133,7 +136,7 @@
 
 			</header><!-- #site-header -->
 
-			<div class="mobile-menu-wrapper">
+			<div class="mobile-menu-wrapper" aria-expanded="false">
 
 				<div class="mobile-menu section-inner">
 
@@ -145,7 +148,7 @@
 
 						<?php endif; ?>
 
-						<ul class="site-nav reset-list-style">
+						<ul class="site-nav reset-list-style" id="mobile-menu" role="navigation">
 							<?php
 							if ( has_nav_menu( 'mobile-menu' ) ) {
 								wp_nav_menu( array(
@@ -180,7 +183,7 @@
 
 								<?php if ( ! $disable_search ) : ?>
 
-									<li class="search-toggle-wrapper"><a href="#" data-toggle-target=".search-overlay" data-set-focus=".search-overlay .search-field" class="toggle search-toggle"></a></li>
+									<li class="search-toggle-wrapper"><button type="button" aria-pressed="false" data-toggle-target=".search-overlay" data-set-focus=".search-overlay .search-field" class="toggle search-toggle"><span class="screen-reader-text"><?php _e( 'Toggle the search field', 'koji' ); ?></span></button></li>
 
 									<?php
 								endif;
@@ -199,15 +202,18 @@
 
 			<?php if ( ! $disable_search ) : ?>
 
-				<div class="search-overlay cover-modal">
-
-					<button class="toggle search-untoggle" data-toggle-target=".search-overlay">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cross.svg" />
-					</button><!-- .search-untoggle -->
+				<div class="search-overlay cover-modal" aria-expanded="false">
 
 					<div class="section-inner search-overlay-form-wrapper">
 						<?php echo get_search_form(); ?>
 					</div><!-- .section-inner -->
+
+					<button type="button" class="toggle search-untoggle" data-toggle-target=".search-overlay" data-set-focus=".search-toggle:visible">
+						<div class="search-untoggle-inner">
+							<img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cross.svg" />
+						</div>
+						<span class="screen-reader-text"><?php _e( 'Hide the search overlay', 'koji' ); ?></span>
+					</button><!-- .search-untoggle -->
 
 				</div><!-- .search-overlay -->
 

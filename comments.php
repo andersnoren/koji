@@ -35,7 +35,7 @@
 
 			// If we're only showing the "Next" link, add a class indicating so
 			if ( strpos( $comment_pagination, 'prev page-numbers' ) === false ) {
-				$pagination_classes .= ' only-next';
+				$pagination_classes = ' only-next';
 			} else {
 				$pagination_classes = '';
 			}

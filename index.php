@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-<main id="site-content">
+<main id="site-content" role="main">
 
 	<?php if ( is_archive() || is_search() ) : ?>
 
-		<header class="archive-header archive-header-mobile bg-color-black color-gray">
+		<header class="archive-header archive-header-mobile bg-color-black color-darker-gray">
 
 			<div class="section-inner">
 
@@ -56,7 +56,7 @@
 
 	<div class="section-inner">
 
-		<div class="posts load-more-target" id="posts">
+		<div class="posts load-more-target" id="posts" aria-live="polite">
 
 			<div class="grid-sizer"></div>
 

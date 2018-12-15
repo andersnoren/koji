@@ -223,8 +223,10 @@ if ( ! function_exists( 'koji_custom_logo' ) ) :
 
 	function koji_custom_logo() {
 
+		$logo_id = get_theme_mod( 'custom_logo' );
+
 		// Get the logo
-		$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
+		$logo = wp_get_attachment_image_src( $logo_id, 'full' );
 
 		if ( $logo ) {
 
@@ -239,10 +241,13 @@ if ( ! function_exists( 'koji_custom_logo' ) ) :
 				$logo_height = floor( $logo_height / 2 );
 			}
 
+			// Get the alt text
+			$logo_alt_text = get_post_meta( $logo_id, '_wp_attachment_image_alt', true ) ? get_post_meta( $logo_id, '_wp_attachment_image_alt', true ) : get_bloginfo( 'site-title' );
+
 			?>
 
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" class="custom-logo-link">
-				<img src="<?php echo esc_url( $logo_url ); ?>" width="<?php echo esc_attr( $logo_width ); ?>" height="<?php echo esc_attr( $logo_height ); ?>" />
+				<img src="<?php echo esc_url( $logo_url ); ?>" width="<?php echo esc_attr( $logo_width ); ?>" height="<?php echo esc_attr( $logo_height ); ?>" alt="<?php echo esc_attr( $logo_alt_text ); ?>" />
 			</a>
 
 			<?php
@@ -266,8 +271,8 @@ if ( ! function_exists( 'koji_widget_areas' ) ) :
 			'name' 			=> __( 'Sidebar', 'koji' ),
 			'id' 			=> 'sidebar',
 			'description' 	=> __( 'Widgets in this area will be shown below the main menu.', 'koji' ),
-			'before_title' 	=> '<h3 class="widget-title">',
-			'after_title' 	=> '</h3>',
+			'before_title' 	=> '<h2 class="widget-title">',
+			'after_title' 	=> '</h2>',
 			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
 			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );
@@ -276,8 +281,8 @@ if ( ! function_exists( 'koji_widget_areas' ) ) :
 			'name' 			=> __( 'Footer #1', 'koji' ),
 			'id' 			=> 'footer-one',
 			'description' 	=> __( 'Widgets in this area will be shown in the first footer column.', 'koji' ),
-			'before_title' 	=> '<h3 class="widget-title">',
-			'after_title' 	=> '</h3>',
+			'before_title' 	=> '<h2 class="widget-title">',
+			'after_title' 	=> '</h2>',
 			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
 			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );
@@ -286,8 +291,8 @@ if ( ! function_exists( 'koji_widget_areas' ) ) :
 			'name' 			=> __( 'Footer #2', 'koji' ),
 			'id' 			=> 'footer-two',
 			'description' 	=> __( 'Widgets in this area will be shown in the second footer column.', 'koji' ),
-			'before_title' 	=> '<h3 class="widget-title">',
-			'after_title' 	=> '</h3>',
+			'before_title' 	=> '<h2 class="widget-title">',
+			'after_title' 	=> '</h2>',
 			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
 			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );
@@ -296,8 +301,8 @@ if ( ! function_exists( 'koji_widget_areas' ) ) :
 			'name' 			=> __( 'Footer #3', 'koji' ),
 			'id' 			=> 'footer-three',
 			'description' 	=> __( 'Widgets in this area will be shown in the third footer column.', 'koji' ),
-			'before_title' 	=> '<h3 class="widget-title">',
-			'after_title' 	=> '</h3>',
+			'before_title' 	=> '<h2 class="widget-title">',
+			'after_title' 	=> '</h2>',
 			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
 			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );
@@ -442,7 +447,7 @@ if ( ! function_exists( 'koji_the_fallback_image' ) ) :
 			return;
 		}
 
-		echo '<img src="' . $fallback_image_url . '" class="fallback-featured-image" />';
+		echo '<img class="fallback-image" src="' . $fallback_image_url . '" alt="' . __( 'Fallback image', 'koji' ) . '" />';
 
 	}
 
@@ -569,7 +574,7 @@ if ( ! function_exists( 'koji_get_post_meta' ) ) :
 						<li class="post-date">
 							<a class="meta-wrapper" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 								<span class="screen-reader-text"><?php _e( 'Post date', 'koji' ); ?></span>
-								<div class="meta-icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/calendar.svg" /></div>
+								<div class="meta-icon"><img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/calendar.svg" /></div>
 								<span class="meta-content"><?php the_time( get_option( 'date_format' ) ); ?></span>
 							</a>
 						</li>
@@ -580,7 +585,7 @@ if ( ! function_exists( 'koji_get_post_meta' ) ) :
 						<li class="post-author">
 							<span class="screen-reader-text"><?php _e( 'Posted by', 'koji' ); ?></span>
 							<a class="meta-wrapper" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>">
-								<div class="meta-icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/user.svg" /></div>
+								<div class="meta-icon"><img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/user.svg" /></div>
 								<span class="meta-content"><?php the_author_meta( 'nickname' ); ?></span>
 							</a>
 						</li>
@@ -590,7 +595,7 @@ if ( ! function_exists( 'koji_get_post_meta' ) ) :
 					// Categories
 					if ( in_array( 'categories', $post_meta ) ) : ?>
 						<li class="post-categories meta-wrapper">
-							<div class="meta-icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/folder.svg" /></div>
+							<div class="meta-icon"><img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/folder.svg" /></div>
 							<span class="screen-reader-text"><?php _e( 'Posted in', 'koji' ); ?></span>
 							<span class="meta-content"><?php the_category( ', ' ); ?></span>
 						</li>
@@ -600,7 +605,7 @@ if ( ! function_exists( 'koji_get_post_meta' ) ) :
 					// Tags
 					if ( in_array( 'tags', $post_meta ) && has_tag() ) : ?>
 						<li class="post-tags meta-wrapper">
-							<div class="meta-icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/tag.svg" /></div>
+							<div class="meta-icon"><img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/tag.svg" /></div>
 							<span class="screen-reader-text"><?php _e( 'Tagged with', 'koji' ); ?></span>
 							<span class="meta-content"><?php the_tags( '', ', ', '' ); ?></span>
 						</li>
@@ -612,7 +617,7 @@ if ( ! function_exists( 'koji_get_post_meta' ) ) :
 						<li class="post-comment-link">
 							<a class="meta-wrapper" href="<?php echo esc_url( get_comments_link( $post_id ) ); ?>">
 								<span class="screen-reader-text"><?php _e( 'Comments', 'koji' ); ?></span>
-								<div class="meta-icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/comment.svg" /></div>
+								<div class="meta-icon"><img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/comment.svg" /></div>
 								<span class="meta-content"><?php echo get_comments_number(); ?></span>
 							</a>
 						</li>
@@ -622,7 +627,7 @@ if ( ! function_exists( 'koji_get_post_meta' ) ) :
 					// Sticky
 					if ( in_array( 'sticky', $post_meta ) && is_sticky() ) : ?>
 						<li class="post-sticky meta-wrapper">
-							<div class="meta-icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/bookmark.svg" /></div>
+							<div class="meta-icon"><img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/bookmark.svg" /></div>
 							<span class="meta-content"><?php _e( 'Sticky post', 'koji' ); ?></span>
 						</li>
 					<?php endif;
@@ -635,13 +640,13 @@ if ( ! function_exists( 'koji_get_post_meta' ) ) :
 							// Make sure we display something in the customizer, as edit_post_link() doesn't output anything there
 							if ( is_customize_preview() ) { ?>
 								<div class="meta-wrapper">
-									<div class="meta-icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/edit.svg" /></div>
+									<div class="meta-icon"><img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/edit.svg" /></div>
 									<span class="meta-content"><?php _e( 'Edit', 'koji' ); ?></span>
 								</div>
 								<?php
 							} else {
 								echo '<a href="' . esc_url( get_edit_post_link() ) . '" class="meta-wrapper"><div class="meta-icon">';
-								echo '<img src="' . get_template_directory_uri() . '/assets/images/icons/edit.svg' . '" />';
+								echo '<img aria-hidden src="' . get_template_directory_uri() . '/assets/images/icons/edit.svg' . '" />';
 								echo '</div>';
 								echo '<span class="meta-content">' . __( 'Edit', 'koji' ) . '</span>';
 								echo '</a>';
@@ -725,6 +730,30 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		}
 
 	endif;
+
+endif;
+
+
+/* ---------------------------------------------------------------------------------------------
+   FILTER COMMENT TEXT TO OUTPUT "BY POST AUTHOR" TEXT
+------------------------------------------------------------------------------------------------ */
+
+
+if ( ! function_exists( 'koji_loading_indicator' ) ) :
+
+	function koji_filter_comment_text( $comment_text, $comment, $args ) {
+
+		$comment_author_user_id = $comment->user_id;
+		$post_author_user_id = get_post_field( 'post_author', $comment->comment_post_ID );
+
+		if ( $comment_author_user_id === $post_author_user_id ) {
+			$comment_text .= '<div class="by-post-author-wrapper">' . __( 'Post author', 'koji' ) . '</div>';
+		}
+
+		return $comment_text;
+
+	}
+	add_filter( 'comment_text', 'koji_filter_comment_text', 10, 3 );
 
 endif;
 

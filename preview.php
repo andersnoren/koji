@@ -2,11 +2,7 @@
 
 	<div class="preview-wrapper">
 
-		<?php
-
-		$fallback_image_url = koji_get_fallback_image_url();
-
-		if ( has_post_thumbnail() || $fallback_image_url ) : ?>
+		<?php if ( has_post_thumbnail() || koji_get_fallback_image_url() ) : ?>
 
 			<a href="<?php the_permalink(); ?>" class="preview-image">
 
@@ -15,7 +11,7 @@
 					$image_size = koji_get_preview_image_size();
 					the_post_thumbnail( $image_size );
 				} else {
-					echo '<img class="fallback-image" src="' . $fallback_image_url . '" />';
+					koji_the_fallback_image();
 				}
 				?>
 				
@@ -25,7 +21,7 @@
 
 		<div class="preview-inner">
 
-			<h3 class="preview-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+			<h2 class="preview-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
 			<?php
 

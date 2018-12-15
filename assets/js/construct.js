@@ -25,6 +25,20 @@ function kojiAjaxErrors( jqXHR, exception ) {
 	}
 }
 
+/* TOGGLE AN ATTRIBUTE */
+
+function kojiToggleAttribute( $element, attribute, trueVal, falseVal ) {
+
+	if ( typeof trueVal === 'undefined' ) { trueVal = true; }
+	if ( typeof falseVal === 'undefined' ) { falseVal = false; }
+
+	if ( $element.attr( attribute ) !== trueVal ) {
+		$element.attr( attribute, trueVal );
+	} else {
+		$element.attr( attribute, falseVal );
+	}
+}
+
 
 // ======================================================================= Interval Scroll
 koji.intervalScroll = {
@@ -86,16 +100,22 @@ koji.toggles = {
 			var classToToggle = $toggle.data( 'class-to-toggle' ) ? $toggle.data( 'class-to-toggle' ) : 'active';
 
 			// Toggle the target of the clicked toggle
+			$target.toggleClass( classToToggle );
+
 			if ( $toggle.data( 'toggle-type' ) == 'slidetoggle' ) {
 				var duration = $toggle.data( 'toggle-duration' ) ? $toggle.data( 'toggle-duration' ) : '400';
-				$target.slideToggle( duration );
-			} else {
-				$target.toggleClass( classToToggle );
+				$target.slideToggle( duration );	
 			}
+
+			// Toggle aria-expanded
+			kojiToggleAttribute( $target, 'aria-expanded' );
 
 			// Toggle the toggles
 			$( '*[data-toggle-target="' + targetString + '"]' ).each( function() {
 				$( this ).toggleClass( 'active' );
+
+				// Update ARIA values
+				kojiToggleAttribute( $( this ), 'aria-pressed' );
 			} );
 
 			// Check whether to set focus
@@ -121,7 +141,7 @@ koji.toggles = {
 			return false;
 
 		} );
-	}
+	},
 
 } // koji.toggles
 
@@ -286,6 +306,9 @@ koji.mobileMenu = {
 		// On screen resize, check whether to unlock scroll and match the mobile menu wrapper padding to the site header
 		koji.mobileMenu.resizeChecks();
 
+		// If the user tabs out of the mobile menu, set focus to the navigation toggle
+		koji.mobileMenu.focusLoop();
+
 	},
 
 	onToggle: function() {
@@ -313,6 +336,16 @@ koji.mobileMenu = {
 			}
 		} );
 
+	},
+
+	focusLoop: function() {
+		$( '*' ).on( 'focus', function() {
+			if ( $( 'mobile-menu-wrapper' ).hasClass( 'active' ) ) {
+				if ( $( this ).parents( '#site-content' ).length ) {
+					$( '.nav-toggle' ).focus();
+				}
+			}
+		} );
 	}
 
 } // koji.mobileMenu
@@ -397,6 +430,7 @@ koji.smoothScroll = {
 		// Remove links that don't actually link to anything
 		.not( '[href="#"]' )
 		.not( '[href="#0"]' )
+		.not( '.skip-link' )
 		.click( function( event ) {
 			// On-page links
 			if ( location.pathname.replace( /^\//, '' ) == this.pathname.replace( /^\//, '' ) && location.hostname == this.hostname ) {
@@ -498,6 +532,7 @@ koji.scrollLock = {
 		// Then lock styles and state
 		$( 'html' ).css( appliedLock );
 		$( window ).scrollLeft( 0 ).scrollTop( 0 );
+		$( 'body' ).addClass( 'scroll-locked' );
 
 		scrollLocked = true;
 	},
@@ -512,6 +547,7 @@ koji.scrollLock = {
 		// Revert styles and state
 		$( 'html' ).attr( 'style', $( '<x>' ).css( prevLockStyles ).attr( 'style' ) || '' );
 		$( window ).scrollLeft( prevScroll.scrollLeft ).scrollTop( prevScroll.scrollTop );
+		$( 'body' ).removeClass( 'scroll-locked' );
 
 		scrollLocked = false;
 	},
@@ -666,6 +702,11 @@ koji.loadMore = {
 
 					$articleWrapper.removeClass( 'no-results' );
 
+					// Add a class indicating the paged of the loaded posts
+					$result.each( function() {
+						$( this ).addClass( 'post-from-page-' + query_args.paged );
+					});
+
 					// Wait for the images to load
 					$result.imagesLoaded( function() {
 
@@ -675,6 +716,9 @@ koji.loadMore = {
 						$( window ).triggerHandler( 'ajax-content-loaded' );
 						$( window ).triggerHandler( 'did-interval-scroll' );
 
+						// Update history
+						koji.loadMore.updateHistory( query_args.paged );
+
 						// We're now finished with the loading
 						loading = false;
 						$pagination.removeClass( 'loading' );
@@ -683,11 +727,13 @@ koji.loadMore = {
 						if ( query_args.paged == query_args.max_num_pages ) {
 							$pagination.addClass( 'last-page' );
 							lastPage = true;
-							return;
 						} else {
 							$pagination.removeClass( 'last-page' );
 							lastPage = false;
 						}
+
+						// Set the focus to the first item of the loaded posts
+						$( '.post-from-page-' + query_args.paged + ':first .preview-title a' ).focus();
 
 					} );
 
@@ -699,6 +745,25 @@ koji.loadMore = {
 				kojiAjaxErrors( jqXHR, exception );
 			}
 		} );
+
+	},
+
+	// Update browser history
+    updateHistory: function( paged ) {
+
+		var newUrl,
+			currentUrl = [ location.protocol, '//', location.host, location.pathname ].join( '' );
+
+		var hasPaginationRegexp = new RegExp( '^(.*/page)/[0-9]*/(.*$)' );
+
+		if ( hasPaginationRegexp.test( currentUrl ) ) {
+			newUrl = currentUrl.replace( hasPaginationRegexp, '$1/' + paged + '/$2' );
+		} else {
+			var beforeSearchReplaceRegexp = new RegExp( '^([^?]*)(\\??.*$)' );
+			newUrl = currentUrl.replace( beforeSearchReplaceRegexp, '$1page/' + paged + '/$2' );
+		}
+
+		history.pushState( {}, '', newUrl );
 
 	}
 

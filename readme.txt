@@ -2,7 +2,7 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
-Tested up to: 4.8
+Tested up to: 5.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -74,6 +74,77 @@ Source: https://feathericons.com
 
 
 == Changelog ==
+
+Version 1.39 (2018-12-15)
+-------------------------
+- Removed troubleshooting code from construct.js
+
+Version 1.38 (2018-12-15)
+-------------------------
+- Fixed an undefined variable notice in comments.php
+- More accessibility improvements (thanks to @poena for the accessibility review!):
+	- Keyboard navigation
+		- Reordered search overlay elements to place the search untoggle after the search field, and added hover/focus style to the search-untoggle button
+		- After a new page has been AJAX loaded, set focus on the first item in the set of new posts
+		- Removed keyboard navigation traps by hiding the overlays entirely when they’re not toggled
+		- Hide skip links when the scroll is locked
+	- Forms
+		- Enabled access to the submit button in the search overlay, using screen-reader-text
+	- Headings
+		- Updated widget title and related posts title to h2, to prevent skipped heading levels
+	- Contrasts
+		- Made the background color of the body slightly lighter, to increase contrast of all elements outside of the main wrapper
+		- Replaced the color #6d7781 with #68717b, to ensure a color contrast of 4.5:1 against light gray backgrounds
+		- Changed hover effect of the following elements to underline instead of color change: single post pagination links, leave a comment link, theme credit link
+		- Added a blue accent color for hover/focus effects in entry-content, comment-content and widget-content
+
+Version 1.37 (2018-12-14)
+-------------------------
+- Removed a superfluous title attribute
+
+Version 1.36 (2018-12-13)
+-------------------------
+- Accessibility improvements:
+	- Checked all color contrast against the WCAG 2.0 AA standard
+	- Updated toggles and toggle targets with the aria-pressed and aria-expanded attributes
+	- Added aria-live and aria-controls attributes to the load more implementation
+	- Added :focus styles for all of the things
+	- Checked screen reader text
+	- Changed the search toggle from a link element to a button element
+	- Added skip links for the main menu and content
+	- Added alt to images, and aria-hidden to icons
+- Refactored the bypostauthor styles to work better with nested comments
+- Fixed loadMore bungling the URL when dealing with query strings and hashes
+- Adjusted preview title size
+- Improved fallback image handling
+- Various tweaks and fixes
+
+Version 1.35 (2018-12-08)
+-------------------------
+- Fixed the default block appender having the wrong font family
+
+Version 1.34 (2018-12-07)
+-------------------------
+- More Block Editor editor styles improvements
+- Implemented the History API for AJAX loading
+- Tested up to 5.0
+
+Version 1.33 (2018-12-07)
+-------------------------
+- Updated Gutenberg editor styles
+
+Version 1.32 (2018-12-07)
+-------------------------
+- Note: Bumped Koji to 1.31 by mistake in the previous version
+- Fixed Gutenberg style changes required due to changes in the default block editor CSS and classes
+
+Version 1.31 (2018-12-07)
+-------------------------
+- Fixed the Classic Block TinyMCE buttons being set to the wrong font
+
+Version 1.12 (2018-11-30)
+-------------------------
+- Fixed Gutenberg editor styles font being overwritten
 
 Version 1.11 (2018-11-10)
 -------------------------

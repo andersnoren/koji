@@ -60,7 +60,7 @@ if ( is_single() && ! $disable_related_posts ) :
 
 		<div class="related-posts section-inner">
 
-			<h3 class="related-posts-title"><?php _e( 'Related Posts', 'koji' ); ?></h3>
+			<h2 class="related-posts-title"><?php _e( 'Related Posts', 'koji' ); ?></h2>
 
 			<div class="posts">
 
