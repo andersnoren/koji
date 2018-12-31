@@ -2,9 +2,9 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 1.39
+	Version: 1.41
 	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Gutenberg support, widget areas in the sidebar and the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://www.andersnoren.se/themes/koji/
-	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets
+	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets, accessibility-ready
 	Author: Anders Norén
 	Author URI: http://www.andersnoren.se
 	License: GNU General Public License version 2.0
@@ -133,6 +133,16 @@ html {
 	font-size: 62.5%; /* 1rem = 10px */
 }
 
+html.html-locked.showing-admin-bar {
+	margin: 0 !important;
+}
+
+@media ( max-width: 768px ) {
+	html.html-locked.showing-admin-bar {
+		padding-top: 46px !important;
+	}
+}
+
 body {
     background: #F6F7F8;
 	border: none;
@@ -177,9 +187,9 @@ a:focus {
 	color: #FFF;
 }
 
-*::-webkit-input-placeholder { color: #6D7781; }
-*:-ms-input-placeholder { color: #6D7781; }
-*::-moz-placeholder { color: #6D7781; }
+*::-webkit-input-placeholder { color: #68717b; }
+*:-ms-input-placeholder { color: #68717b; }
+*::-moz-placeholder { color: #68717b; }
 
 
 /* Fonts ------------------------------------- */
@@ -473,7 +483,7 @@ object {
 figcaption,
 .entry-content figcaption,
 .wp-caption-text {
-	color: #6D7781;
+	color: #68717b;
 	font-size: 1.4rem;
 	font-weight: 500;
 	margin: 1.5rem 0 0;
@@ -527,7 +537,7 @@ fieldset {
 }
 
 fieldset legend {
-	color: #6D7781;
+	color: #68717b;
 	font-size: 1.4rem;
 	font-weight: 600;
 	padding: 0 1rem;
@@ -537,7 +547,7 @@ fieldset legend {
 /* Inputs ------------------------------------ */
 
 label {
-	color: #6D7781;
+	color: #68717b;
 	display: block;
 	font-size: 1.4rem;
 	font-weight: 600;
@@ -602,7 +612,7 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="text"]:focus,
 input[type="url"]:focus {
-	border-color: #6D7781;
+	border-color: #68717b;
 	outline: none;
 }
 
@@ -619,9 +629,9 @@ select {
 	width: 100%;
 }
 
-*::-webkit-input-placeholder { color: #6D7781; }
-*:-ms-input-placeholder { color: #6D7781; }
-*::-moz-placeholder { color: #6D7781; }
+*::-webkit-input-placeholder { color: #68717b; }
+*:-ms-input-placeholder { color: #68717b; }
+*::-moz-placeholder { color: #68717b; }
 
 button,
 .faux-button,
@@ -858,7 +868,7 @@ ul.social-icons li {
 }
 
 .social-icons button.active {
-	background-color: #6D7781;
+	background-color: #68717b;
 	color: #fff;
 }
 
@@ -923,7 +933,7 @@ ul.social-icons li {
 /* Post Meta ----------------------------- */
 
 .post-meta {
-	color: #6D7781;
+	color: #68717b;
 	display: flex;
 	flex-wrap: wrap;
 	font-size: 1.4rem;
@@ -1003,6 +1013,17 @@ ul.social-icons li {
 	z-index: 9999;
 }
 
+@media ( max-width: 782px ) {
+	.showing-admin-bar .cover-modal {
+		top: 46px;
+	}
+}
+@media ( min-width: 782px ) {
+	.showing-admin-bar .cover-modal {
+		top: 32px;
+	}
+}
+
 .cover-modal.active {
 	display: block;
 }
@@ -1013,7 +1034,7 @@ ul.social-icons li {
 	animation: spin 1.4s linear infinite;
     border: .5rem solid #DCDFE2;
 	border-radius: 50%;
-    border-top: .5rem solid #6D7781;
+    border-top: .5rem solid #68717b;
     height: 4.4rem;
 	margin: auto;
     width: 4.4rem;
@@ -1268,6 +1289,12 @@ ul.social-icons li {
 		top: 0;
 	transition: opacity .25s ease-in, left 0s .25s, right 0s .25s;
 	z-index: 99;
+}
+
+@media ( max-width: 782px ) {
+	.mobile-menu-wrapper {
+		top: 46px;
+	}
 }
 
 .mobile-menu-wrapper.active {
@@ -1558,7 +1585,7 @@ ul.site-nav ul {
 
 .pagination-single a {
 	align-items: center;
-	color: #6D7781;
+	color: #68717b;
 	display: flex;
 	font-weight: 600;
 	font-size: 1.6rem;
@@ -1600,7 +1627,7 @@ ul.site-nav ul {
 }
 
 .related-posts-title {
-	color: #6D7781;
+	color: #68717b;
 	font-size: 1.4rem;
 	font-weight: 600;
 	margin-bottom: 2rem;
@@ -1636,7 +1663,7 @@ ul.site-nav ul {
 
 .leave-comment-link,
 .comment-reply-title small a {
-	color: #6D7781;
+	color: #68717b;
 	font-size: 1.6rem;
 	font-weight: 500;
 	margin-left: 1rem;
@@ -1702,7 +1729,7 @@ ul.site-nav ul {
 
 .comment-meta a:hover,
 .comment-meta a:focus {
-	border-bottom-color: #6D7781;
+	border-bottom-color: #68717b;
 	text-decoration: none;
 }
 
@@ -1730,7 +1757,7 @@ ul.site-nav ul {
 }
 
 .comment-metadata {
-	color: #6D7781;
+	color: #68717b;
 	font-weight: 500;
 }
 
@@ -1746,9 +1773,9 @@ ul.site-nav ul {
 
 .comment-reply-link {
 	align-items: center;
-	border: .1rem solid #6D7781;
+	border: .1rem solid #68717b;
 	border-radius: .2rem;
-	color: #6D7781;
+	color: #68717b;
 	display: flex;
 	font-size: 1.2rem;
 	font-weight: 500;
@@ -1762,8 +1789,8 @@ ul.site-nav ul {
 
 .comment-reply-link:hover,
 .comment-reply-link:focus {
-	background: #6D7781;
-	border-color: #6D7781;
+	background: #68717b;
+	border-color: #68717b;
 	color: #fff;
 	text-decoration: none;
 }
@@ -1776,13 +1803,11 @@ ul.site-nav ul {
 	line-height: 1.4;
 }
 
-.comment-content a:hover,
-.comment-content a:focus {
-	color: #388ed1;
-}
+.comment-content a { text-decoration: underline; }
+.comment-content a:hover { text-decoration: none; }
 
 .bypostauthor .by-post-author-wrapper {
-	color: #6D7781;
+	color: #68717b;
 	font-size: 1.2rem;
 	font-weight: 600;
 	letter-spacing: 0.01em;
@@ -1817,7 +1842,7 @@ ul.site-nav ul {
 }
 
 .comments-pagination .page-numbers {
-	color: #6D7781;
+	color: #68717b;
 	display: none;
 	font-weight: 600;
 	text-decoration: none;
@@ -1856,7 +1881,7 @@ ul.site-nav ul {
 }
 
 .comment-form p.logged-in-as {
-	color: #6D7781;
+	color: #68717b;
 	line-height: 1.25;
 	margin: -1.2rem 0 2.8rem 0;
 }
@@ -1920,9 +1945,8 @@ ul.site-nav ul {
 	position: relative;
 }
 
-.entry-content a:hover,
-.entry-content a:focus {
-	color: #388ed1;
+.entry-content a:hover {
+	text-decoration: none;
 }
 
 /* Gutenberg Accent Colors --------------------------------------- */
@@ -1935,11 +1959,11 @@ ul.site-nav ul {
 .entry-content .has-darkest-gray-color { color: #4B555F; }
 .entry-content .has-darkest-gray-background-color { background-color: #4B555F; }
 
-.entry-content .has-darker-gray-color { color: #6D7781; }
-.entry-content .has-darker-gray-background-color { background-color: #6D7781; }
+.entry-content .has-darker-gray-color { color: #68717b; }
+.entry-content .has-darker-gray-background-color { background-color: #68717b; }
 
-.entry-content .has-gray-color { color: #6D7781; }
-.entry-content .has-gray-background-color { background-color: #6D7781; }
+.entry-content .has-gray-color { color: #68717b; }
+.entry-content .has-gray-background-color { background-color: #68717b; }
 
 .entry-content .has-light-gray-color { color: #DCDFE2; }
 .entry-content .has-light-gray-background-color { background-color: #DCDFE2; }
@@ -2217,7 +2241,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 }
 
 #pagination .out-of-posts {
-	color: #6D7781;
+	color: #68717b;
 	font-size: 0.9em;
 	font-weight: 500;
 	margin: 0;
@@ -2238,7 +2262,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 }
 
 .link-pagination a {
-	color: #6D7781;
+	color: #68717b;
 	font-weight: 600;
 	text-decoration: none;
 }
@@ -2259,7 +2283,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 }
 
 .error404 .go-home {
-	color: #6D7781;
+	color: #68717b;
 	font-size: .95em;
 	font-weight: 600;
 	text-decoration: none;
@@ -2304,7 +2328,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 /* Footer Credits ------------------------------- */
 
 .credits {
-	color: #6D7781;
+	color: #68717b;
 	font-size: 1.4rem;
 	font-weight: 500;
 	text-align: center;
@@ -2332,10 +2356,8 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	font-size: 1.7rem;
 }
 
-.widget-content a:hover,
-.widget-content a:focus {
-	color: #388ed1;
-}
+.widget-content a { text-decoration: underline; }
+.widget-content a:hover { text-decoration: none; }
 
 .widget-title {
 	color: #68717B;
@@ -2379,16 +2401,11 @@ html.js body:not(.pagination-type-links) .link-pagination {
 /* Widget: Recent Entries ------------------------------- */
 
 .widget_recent_entries a {
-	text-decoration: none;
 	font-weight: 600;
 }
 
-.widget_recent_entries a:hover {
-	text-decoration: underline;
-}
-
 .widget_recent_entries .post-date {
-	color: #6D7781;
+	color: #68717b;
 	margin-top: .2rem;
 }
 
@@ -2481,7 +2498,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 }
 
 .widget_tag_cloud a {
-	background: #6D7781;
+	background: #68717b;
 	border-radius: .3rem;
 	color: #fff;
 	display: block;

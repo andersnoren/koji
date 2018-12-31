@@ -75,6 +75,21 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 1.41 (2018-12-28)
+-------------------------
+- Updated the aria-hidden attribute to be aria-hidden="true"
+- Added the accessibility-ready theme tag to style.css, after review by @poena
+
+Version 1.40 (2018-12-20)
+-------------------------
+- Fixed bad targeting in the focusLoop js function
+- Fixed a variable being unset in the elementInView js function
+- Untoggle the main menu if the window is resized to a bigger size than when the menu should be visible
+- Updated the hover effect for links in the content
+- Updated the modals to account for the height of the admin bar, preventing modal elements to be obscured
+- Fixed the old light-gray color still being used in some places
+- Unified the link styling in the widget areas
+
 Version 1.39 (2018-12-15)
 -------------------------
 - Removed troubleshooting code from construct.js

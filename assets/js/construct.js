@@ -188,7 +188,7 @@ koji.searchModal = {
 				modal = '.search-overlay',
 				modalActive = modal + '.active';
 
-			if ( $( modalActive ).length && $target.not( modalActive ) && ! $target.parents( modalActive ).length ) {
+			if ( $( modalActive ).length && $target.not( $( modal ) ) && ! $target.parents( $( modal ) ) ) {
 				$( '.search-untoggle' ).trigger( 'click' );
 			}
 
@@ -240,6 +240,8 @@ koji.elementInView = {
 	},
 
 	handleFocus: function( $targets ) {
+
+		winHeight = $( window ).height();
 
 		// Get dimensions of window outside of scroll for performance
 		$( window ).on( 'load resize orientationchange', function() {
@@ -331,8 +333,9 @@ koji.mobileMenu = {
 			$mobileMenuWrapper.css( { 'padding-top': headerHeight + 'px' } );
 
 			// Unlock the scroll if we pass the breakpoint for hiding the mobile menu
-			if ( $( window ).width() >= 1000 ) {
-				koji.scrollLock.setTo( false );
+			if ( $( window ).width() >= 1000 && $( '.nav-toggle' ).hasClass( 'active' ) ) {
+				console.log( 'trigger resize' );
+				$( '.nav-toggle' ).trigger( 'click' );
 			}
 		} );
 
@@ -340,7 +343,7 @@ koji.mobileMenu = {
 
 	focusLoop: function() {
 		$( '*' ).on( 'focus', function() {
-			if ( $( 'mobile-menu-wrapper' ).hasClass( 'active' ) ) {
+			if ( $( '.mobile-menu-wrapper' ).hasClass( 'active' ) ) {
 				if ( $( this ).parents( '#site-content' ).length ) {
 					$( '.nav-toggle' ).focus();
 				}
@@ -466,9 +469,9 @@ koji.scrollLock = {
 		},
 		window.prevLockStyles = {},
 		window.lockStyles = {
-			'overflow-y' : 'scroll',
-			'position'   : 'fixed',
-			'width'      : '100%'
+			'overflow-y' 	: 'scroll',
+			'position'   	: 'fixed',
+			'width'      	: '100%'
 		};
 
 		// Instantiate cache in case someone tries to unlock before locking
@@ -530,7 +533,7 @@ koji.scrollLock = {
 		} );
 
 		// Then lock styles and state
-		$( 'html' ).css( appliedLock );
+		$( 'html' ).css( appliedLock ).addClass( 'html-locked' );
 		$( window ).scrollLeft( 0 ).scrollTop( 0 );
 		$( 'body' ).addClass( 'scroll-locked' );
 
@@ -545,7 +548,7 @@ koji.scrollLock = {
 		}
 
 		// Revert styles and state
-		$( 'html' ).attr( 'style', $( '<x>' ).css( prevLockStyles ).attr( 'style' ) || '' );
+		$( 'html' ).attr( 'style', $( '<x>' ).css( prevLockStyles ).attr( 'style' ) || '' ).removeClass( 'html-locked' );
 		$( window ).scrollLeft( prevScroll.scrollLeft ).scrollTop( prevScroll.scrollTop );
 		$( 'body' ).removeClass( 'scroll-locked' );
 

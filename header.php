@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 
-<html class="no-js" <?php language_attributes(); ?>>
+<?php 
+
+// Class indicating whether the admin bar is showing
+$html_class = is_admin_bar_showing() ? ' showing-admin-bar' : ''; ?>
+
+<html class="no-js<?php echo $html_class; ?>" <?php language_attributes(); ?>>
 
 	<head>
 
@@ -210,7 +215,7 @@
 
 					<button type="button" class="toggle search-untoggle" data-toggle-target=".search-overlay" data-set-focus=".search-toggle:visible">
 						<div class="search-untoggle-inner">
-							<img aria-hidden src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cross.svg" />
+							<img aria-hidden="true" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cross.svg" />
 						</div>
 						<span class="screen-reader-text"><?php _e( 'Hide the search overlay', 'koji' ); ?></span>
 					</button><!-- .search-untoggle -->
