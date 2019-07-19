@@ -20,6 +20,12 @@ $html_class = is_admin_bar_showing() ? ' showing-admin-bar' : ''; ?>
 
 	<body <?php body_class(); ?>>
 
+		<?php 
+		if ( function_exists( 'wp_body_open' ) ) {
+			wp_body_open(); 
+		}
+		?>
+
 		<div id="site-wrapper">
 
 			<header id="site-header" role="banner">

@@ -2,13 +2,14 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 1.41
-	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Gutenberg support, widget areas in the sidebar and the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://www.andersnoren.se/themes/koji/
-	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets, accessibility-ready
+	Version: 1.46
+	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Block Editor/Gutenberg support, widget areas in the sidebar and the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: https://www.andersnoren.se/themes/koji/
+	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets, accessibility-ready, block-styles, wide-blocks
 	Author: Anders Norén
-	Author URI: http://www.andersnoren.se
+	Author URI: https://www.andersnoren.se
 	License: GNU General Public License version 2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	Theme URI: https://www.andersnoren.se/teman/koji-wordpress-theme/
 	
 	All files, unless otherwise stated, are released under the GNU General Public License
 	version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -490,6 +491,11 @@ figcaption,
 	text-align: inherit;
 }
 
+figcaption a,
+.wp-caption-text a {
+	display: inline;
+}
+
 
 /* GALLERIES */
 
@@ -909,7 +915,7 @@ ul.social-icons li {
 .s-icons a[href*="mixcloud.com"]::before { content: '\f289'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="patreon.com"]::before { content: '\f3d9'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="pscp.tv"]::before { content: '\f3da'; font-family: 'Font Awesome 5 Brands'; }
-.s-icons a[href*="pinterest.com"]::before { content: '\f231'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="pinterest"]::before { content: '\f231'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="play.google.com"]::before { content: '\f3ab'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="plus.google.com"]::before { content: '\f0d5'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="producthunt.com"]::before { content: '\f288'; font-family: 'Font Awesome 5 Brands'; }
@@ -919,7 +925,7 @@ ul.social-icons li {
 .s-icons a[href*="soundcloud.com"]::before { content: '\f1be'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="spotify.com"]::before { content: '\f1bc'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="tumblr.com"]::before { content: '\f173'; font-family: 'Font Awesome 5 Brands'; }
-.s-icons a[href*="twitch.tv"]::before { content: '\f1e8'; font-family: 'Font Awesome 5 Brands'; }
+.s-icons a[href*="twitch"]::before { content: '\f1e8'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="twitter.com"]::before { content: '\f099'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="vimeo.com"]::before { content: '\f27d'; font-family: 'Font Awesome 5 Brands'; }
 .s-icons a[href*="wordpress.org"]::before,
@@ -1292,7 +1298,7 @@ ul.social-icons li {
 }
 
 @media ( max-width: 782px ) {
-	.mobile-menu-wrapper {
+	.admin-bar .mobile-menu-wrapper {
 		top: 46px;
 	}
 }

@@ -1,6 +1,6 @@
 <article <?php post_class( 'single-container bg-color-white' ); ?> id="post-<?php the_ID(); ?>">
 
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 
 		<div class="featured-media">
 
@@ -80,19 +80,19 @@
 
 			endif;
 
-			// If comments are open, or there are at least one comment
-			if ( comments_open() || get_comments_number() ) : ?>
+		endif;
 
-				<div class="comments-wrapper">
+		// If comments are open, or there are at least one comment
+		if ( ( get_post_type() == 'post' || comments_open() || get_comments_number() ) && ! post_password_required() ) : ?>
 
-					<?php comments_template(); ?>
+			<div class="comments-wrapper">
 
-				</div><!-- .comments-wrapper -->
+				<?php comments_template(); ?>
 
-			<?php endif; ?>
+			</div><!-- .comments-wrapper -->
 
-		</div><!-- .post-inner -->
+		<?php endif; ?>
 
-	<?php endif; ?>
+	</div><!-- .post-inner -->
 
 </article>
