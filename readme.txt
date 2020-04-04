@@ -2,7 +2,7 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
-Tested up to: 5.2
+Tested up to: 5.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -74,6 +74,24 @@ Source: https://feathericons.com
 
 
 == Changelog ==
+
+Version 2.0.0 (2020-04-04)
+-------------------------
+- Fixed handling of large logos on mobile, made the navigation toggle styles more flexible.
+- Updates for WordPress 5.4.
+	- Added styles for the new social icons and buttons blocks.
+	- Updated "Tested up to" to 5.4.
+- Renamed editor style files and moved them to /assets/css/.
+- Improved block editor styles, fixed issues caused by markup changes.
+- Code formatting cleanup in functions.php.
+- Updated the register_sidebar() calls to ensure the widget ID is included in the output.
+- Moved the Koji_Customize class from functions.php to its own file.
+- Tweaked gallery block styles.
+- Updated FontAwesome to only include font files for IE10 and up, reducing theme file size by ~1.5 MB.
+- Improved text antialiasing in Firefox.
+- Increased the width of the content in Koji by 40 pixels, making text a bit more readable.
+- Changed the theme screenshot to the JPG format, reducing file size.
+- Lossless compression of the fallback avatar and fallback image.
 
 Version 1.46 (2019-07-16)
 -------------------------
