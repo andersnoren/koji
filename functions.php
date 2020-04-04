@@ -15,9 +15,7 @@ if ( ! function_exists( 'koji_setup' ) ) :
 
 		// Set content-width
 		global $content_width;
-		if ( ! isset( $content_width ) ) {
-			$content_width = 520;
-		}
+		$content_width = 560;
 
 		// Post thumbnails
 		add_theme_support( 'post-thumbnails' );

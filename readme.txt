@@ -75,6 +75,10 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.0.1 (2020-04-04)
+-------------------------
+- Fixed the $content_width variable not matching the new content width set in 2.0.0.
+
 Version 2.0.0 (2020-04-04)
 -------------------------
 - Fixed handling of large logos on mobile, made the navigation toggle styles more flexible.
