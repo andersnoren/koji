@@ -75,6 +75,10 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.0.2 (2020-04-06)
+-------------------------
+- Fixed a calculation issue causing alignfull blocks to have the wrong margin on some screen sizes.
+
 Version 2.0.1 (2020-04-04)
 -------------------------
 - Fixed the $content_width variable not matching the new content width set in 2.0.0.
