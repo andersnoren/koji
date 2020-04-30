@@ -75,6 +75,16 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.0.3 (2020-04-30)
+-------------------------
+- Modified the targeting of block editor colors and font sizes to be able to hit elements outside of the entry content.
+- Renamed the "Regular" Block Editor font size to "Normal", which is the expected Block Editor name for the default font size.
+- Fixed incorrect targeting of the social block in the base block margins.
+
+Version 2.0.2 (2020-04-06)
+-------------------------
+- Fixed a calculation issue causing alignfull blocks to have the wrong margin on some screen sizes.
+
 Version 2.0.2 (2020-04-06)
 -------------------------
 - Fixed a calculation issue causing alignfull blocks to have the wrong margin on some screen sizes.

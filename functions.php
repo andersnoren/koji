@@ -836,10 +836,10 @@ if ( ! function_exists( 'koji_add_gutenberg_features' ) ) :
 				'slug' 		=> 'small',
 			),
 			array(
-				'name' 		=> _x( 'Regular', 'Name of the regular font size in Gutenberg', 'koji' ),
-				'shortName' => _x( 'M', 'Short name of the regular font size in the Gutenberg editor.', 'koji' ),
+				'name' 		=> _x( 'Normal', 'Name of the regular font size in Gutenberg', 'koji' ),
+				'shortName' => _x( 'N', 'Short name of the regular font size in the Gutenberg editor.', 'koji' ),
 				'size' 		=> 19,
-				'slug' 		=> 'regular',
+				'slug' 		=> 'normal',
 			),
 			array(
 				'name' 		=> _x( 'Large', 'Name of the large font size in Gutenberg', 'koji' ),

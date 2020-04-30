@@ -2,7 +2,7 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 2.0.2
+	Version: 2.0.3
 	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Block Editor/Gutenberg support, widget areas in the sidebar and the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: https://www.andersnoren.se/themes/koji/
 	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets, accessibility-ready, block-styles, wide-blocks
 	Author: Anders Norén
@@ -2006,55 +2006,52 @@ ul.site-nav ul {
 /* -------------------------------------------------------------------------------- */
 
 
-/* Gutenberg Accent Colors --------------------------------------- */
+/* Block Editor Accent Colors ---------------- */
 
-.entry-content .has-background { background-color: #232D37; }
+:root .has-background { background-color: #232D37; }
 
-.entry-content .has-black-color { color: #232D37; }
-.entry-content .has-black-background-color { background-color: #232D37; }
+:root .has-black-color { color: #232D37; }
+:root .has-black-background-color { background-color: #232D37; }
 
-.entry-content .has-darkest-gray-color { color: #4B555F; }
-.entry-content .has-darkest-gray-background-color { background-color: #4B555F; }
+:root .has-darkest-gray-color { color: #4B555F; }
+:root .has-darkest-gray-background-color { background-color: #4B555F; }
 
-.entry-content .has-darker-gray-color { color: #68717b; }
-.entry-content .has-darker-gray-background-color { background-color: #68717b; }
+:root .has-darker-gray-color { color: #68717b; }
+:root .has-darker-gray-background-color { background-color: #68717b; }
 
-.entry-content .has-gray-color { color: #68717b; }
-.entry-content .has-gray-background-color { background-color: #68717b; }
+:root .has-gray-color { color: #68717b; }
+:root .has-gray-background-color { background-color: #68717b; }
 
-.entry-content .has-light-gray-color { color: #DCDFE2; }
-.entry-content .has-light-gray-background-color { background-color: #DCDFE2; }
+:root .has-light-gray-color { color: #DCDFE2; }
+:root .has-light-gray-background-color { background-color: #DCDFE2; }
 
-.entry-content .has-lightest-gray-color { color: #E6E9EC; }
-.entry-content .has-lightest-gray-background-color { background-color: #E6E9EC; }
+:root .has-lightest-gray-color { color: #E6E9EC; }
+:root .has-lightest-gray-background-color { background-color: #E6E9EC; }
 
-.entry-content .has-white-color { color: #fff; }
-.entry-content .has-white-background-color { background-color: #fff; }
+:root .has-white-color { color: #fff; }
+:root .has-white-background-color { background-color: #fff; }
 
+/* Block Editor Font Sizes ------------------- */
 
-/* Gutenberg Font Sizes --------------------------------------- */
+:root .has-small-font-size { font-size: .842em; }
+:root .has-regular-font-size,
+:root .has-normal-font-size { 
+	font-size: 1em;
+}
 
-.entry-content .has-small-font-size { font-size: .842em; }
-.entry-content .has-regular-font-size { font-size: 1em; }
-
-.entry-content .has-large-font-size,
-.entry-content .has-larger-font-size {
+:root .has-large-font-size,
+:root .has-larger-font-size {
 	line-height: 1.45;
 }
 
-.entry-content .has-large-font-size { font-size: 1.333em; }
-.entry-content .has-larger-font-size { font-size: 1.777em; }
+:root .has-large-font-size { font-size: 1.333em; }
+:root .has-larger-font-size { font-size: 1.777em; }
 
 
 /* Block: Base Margins ----------------------- */
 
-:root *[class*="_inner-container"] > *:first-child {
-	margin-top: 0;
-}
-
-:root *[class*="_inner-container"] > *:last-child {
-	margin-bottom: 0;
-}
+:root *[class*="_inner-container"] > *:first-child { margin-top: 0; }
+:root *[class*="_inner-container"] > *:last-child { margin-bottom: 0; }
 
 .wp-block-archives,
 .wp-block-button,
@@ -2073,7 +2070,7 @@ ul.site-nav ul {
 .wp-block-media-text,
 .wp-block-preformatted,
 .wp-block-pullquote,
-.wp-block-social,
+.wp-block-social-links,
 .wp-block-quote,
 .wp-block-quote.is-large,
 .wp-block-quote.is-style-large,
