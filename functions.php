@@ -73,11 +73,7 @@ if ( ! function_exists( 'koji_load_style' ) ) :
 
 		if ( is_admin() ) return;
 
-		wp_register_style( 'koji-fontawesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.css' );
-
-		$dependencies = array( 'koji-fontawesome' );
-
-		wp_enqueue_style( 'koji-style', get_template_directory_uri() . '/style.css', $dependencies, wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'koji-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme( 'koji' )->get( 'Version' ) );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'koji_load_style' );
@@ -107,7 +103,7 @@ endif;
 if ( ! function_exists( 'koji_enqueue_scripts' ) ) :
 	function koji_enqueue_scripts() {
 
-		wp_enqueue_script( 'koji_construct', get_template_directory_uri() . '/assets/js/construct.js', array( 'jquery', 'imagesloaded', 'masonry' ), wp_get_theme()->get( 'Version' ), true );
+		wp_enqueue_script( 'koji_construct', get_template_directory_uri() . '/assets/js/construct.js', array( 'jquery', 'imagesloaded', 'masonry' ), wp_get_theme( 'koji' )->get( 'Version' ), true );
 
 		if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );

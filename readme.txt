@@ -75,6 +75,10 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.0.4 (2020-04-30)
+-------------------------
+- Removed the fontawesome.css file, since it wasn't being used (and the font files it pointed to doesn't exist – oops).
+
 Version 2.0.3 (2020-04-30)
 -------------------------
 - Modified the targeting of block editor colors and font sizes to be able to hit elements outside of the entry content.
