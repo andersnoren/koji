@@ -2,7 +2,7 @@
 
 	Theme Name: Koji
     Text Domain: koji
-	Version: 2.0.4
+	Version: 2.0.5
 	Description: Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Block Editor/Gutenberg support, widget areas in the sidebar and the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: https://www.andersnoren.se/themes/koji/
 	Tags: two-columns, left-sidebar, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets, accessibility-ready, block-styles, wide-blocks
 	Author: Anders Norén
@@ -48,11 +48,9 @@ h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, 
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-weight: normal;
-	font-style: normal;
 	font-size: 100%;
-	line-height: 1;
-	text-align: left;
+	line-height: inherit;
+	text-align: inherit;
 }
 
 table {
@@ -354,24 +352,29 @@ dd {
 	line-height: 1.5;
 }
 
-
 /* Quotes ------------------------------------ */
 
-
 blockquote {
-	border-left: .2rem solid #DCDFE2;
+	border-color: #DCDFE2;
+	border-style: solid;
+	border-width: 0 0 0 .2rem;
 	margin: 0 0 1.25em 0;
 	padding: .25em 0 .25em 1.5em;
 }
 
-cite {
-	font-size: 0.9em;
-	font-weight: 600;
+blockquote p:last-of-type {
+	margin-bottom: 0;
 }
 
+cite {
+	display: block;
+	font-size: 0.9em;
+	font-style: normal;
+	font-weight: 600;
+	margin: 1em 0 0;
+}
 
 /* Code -------------------------------------- */
-
 
 pre {
 	overflow: auto;
@@ -433,13 +436,11 @@ object {
 	max-width: 50%;
 }
 
-.wp-block-image.alignleft,
 .alignleft {
 	float: left;
 	margin-right: 2.5rem;
 }
 
-.wp-block-image.alignright,
 .alignright {
 	float: right;
 	margin-left: 2.5rem;
@@ -1271,9 +1272,7 @@ ul.social-icons li {
 	transform: rotate( -45deg );
 }
 
-
 /* Mobile Menu ----------------------------- */
-
 
 .mobile-menu-wrapper {
 	background: #fff;
@@ -1943,6 +1942,9 @@ ul.site-nav ul {
 	position: relative;
 }
 
+:root .entry-content > *:first-child { margin-top: 0; }
+:root .entry-content > *:last-child { margin-bottom: 0; }
+
 .entry-content a:hover {
 	text-decoration: none;
 }
@@ -1990,14 +1992,6 @@ ul.site-nav ul {
 
 .wp-block-separator.is-style-dots:before {
 	color: inherit;
-}
-
-.entry-content li,
-.entry-content ul ul,
-.entry-content ul ol,
-.entry-content ol ol,
-.entry-content ol ul {
-	margin-top: 1.5rem;
 }
 
 
@@ -2101,6 +2095,11 @@ ul.site-nav ul {
 }
 
 /* Block: Buttons ---------------------------- */
+
+.wp-block-buttons .wp-block-button {
+	margin-top: 0;
+}
+
 /* Block: Column ----------------------------- */
 
 .wp-block-column {
@@ -2142,6 +2141,18 @@ ul.site-nav ul {
 	padding-bottom: 1rem;
 }
 
+/* Block: Image ------------------------------ */
+
+:root .wp-block-image.alignleft,
+:root .wp-block-image .alignleft {
+	margin-right: 2.5rem;
+}
+
+:root .wp-block-image.alignright,
+:root .wp-block-image .alignright {
+	margin-left: 2.5rem;
+}
+
 /* Block: Pull Quote ------------------------- */
 
 .entry-content .wp-block-pullquote {
@@ -2178,7 +2189,20 @@ ul.site-nav ul {
 	font-size: inherit;
 	font-weight: 500;
 	line-height: 1.4;
-	margin-bottom: 1em;
+}
+
+/* STYLE: SOLID COLOR */
+
+.wp-block-pullquote.has-background {
+	padding: 2rem;
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote {
+	max-width: 100%;
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote p {
+	font-size: inherit;
 }
 
 /* Block: Quote ------------------------------ */
@@ -2193,11 +2217,37 @@ ul.site-nav ul {
 	margin-bottom: 0;
 }
 
+blockquote.has-text-align-center {
+	border-width: 0;
+	padding: .25em 0;
+}
+
+blockquote.has-text-align-right {
+	border-width: 0 .2rem 0 0;
+	padding: .25em 1.5em .25em 0;
+}
+
+/* STYLE: LARGE */
+
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large {
+	border-width: 0;
+	padding: .25em 0;
+}
+
 .wp-block-quote.is-large p, 
 .wp-block-quote.is-style-large p {
 	font-size: 1.33em;
 	font-style: inherit;
 	line-height: 1.5;
+}
+
+.wp-block-quote.is-large cite, 
+.wp-block-quote.is-large footer, 
+.wp-block-quote.is-style-large cite, 
+.wp-block-quote.is-style-large footer {
+	font-size: .9em;
+	text-align: inherit;
 }
 
 /* Block: Social ----------------------------- */
@@ -2206,6 +2256,10 @@ ul.site-nav ul {
 	margin-bottom: 0;
 	margin-left: 0;
 	margin-top: 0;
+}
+
+.wp-block-social-links.is-style-logos-only .wp-social-link svg {
+	max-width: none;
 }
 
 /* Page Break -------------------------------- */
@@ -2858,6 +2912,12 @@ html.js body:not(.pagination-type-links) .link-pagination {
 		padding: 5rem 0 0;
 	}
 
+	/* Blocks -------------------------------- */
+
+	.entry-content .wp-block-pullquote p,
+	.wp-block-pullquote.is-style-solid-color blockquote p {
+		font-size: 2.4rem;
+	}
 
 	/* Entry Content ------------------------------- */
 
@@ -2953,16 +3013,10 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	.entry-content .gallery-columns-8 .gallery-item { width: 12.5%; }
 	.entry-content .gallery-columns-9 .gallery-item { width: 11.1%; }
 
-
-	.entry-content .wp-block-pullquote p {
-		font-size: 2.4rem;
-	}
-
 	figcaption,
 	.entry-content figcaption,
 	.wp-caption-text {
 		font-size: 1.6rem;
-		margin-top: 2rem;
 	}
 
 

@@ -75,6 +75,21 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.0.5 (2020-05-02)
+-------------------------
+- Fixed max-width issue with pull quote set to style: solid color.
+- Gave the cite element a base top margin.
+- Added `global $post;` before `setup_postdata()` in `related-posts.php`
+- Added edit post link after the post content to post types other than posts (which include them as part of the post meta).
+- Modified the CSS reset to make elements inherit styles instead of reset them.
+- Fixed blockquotes not properly supporting text alignment being set to center and right.
+- Fixed blockquotes with solid background color all of a sudden having huge font sizes (thanks, Core styles).
+- Fixed the left/right margins of image block alignright/alignleft being overwritten by Core styles.
+- Block editor styles: Fixed alignleft and alignright elements having the wrong width.
+- Improved styles of buttons block and social block.
+- More foolproof removal of top/bottom margin of first/last elements in the entry content.
+- Tweaked image caption margins.
+
 Version 2.0.4 (2020-04-30)
 -------------------------
 - Removed the fontawesome.css file, since it wasn't being used (and the font files it pointed to doesn't exist – oops).
