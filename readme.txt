@@ -76,6 +76,10 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.0.8 (2020-08-12)
+-------------------------
+- Added escaping of `get_template_directory_uri()`.
+
 Version 2.0.7 (2020-08-12)
 -------------------------
 - JS: Fixed compatibility with WordPress 5.5 by replacing `live()` with `on()`.
