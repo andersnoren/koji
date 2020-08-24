@@ -76,6 +76,10 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.0.9 (2020-08-24)
+-------------------------
+- Fixed the Post Meta Customizer setting being broken in WordPress 5.5.
+
 Version 2.0.8 (2020-08-12)
 -------------------------
 - Added escaping of `get_template_directory_uri()`.
