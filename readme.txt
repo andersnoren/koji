@@ -82,6 +82,7 @@ Version 2.0.10 (2022-05-27)
 - Removed www from all https://andersnoren.se links.
 - Bumped "Tested up to" to 6.0.
 - Minified SVG files.
+- Dumped woff2 versions of FontAwesome (used by the social icons) to reduce theme footprint.
 
 Version 2.0.9 (2020-08-24)
 -------------------------

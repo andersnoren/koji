@@ -200,16 +200,14 @@ a:focus {
 	font-family: 'Font Awesome 5';
 	font-style: normal;
 	font-weight: normal;
-	src: url( ./assets/font-awesome/fonts/fa-solid-900.woff2 ) format( 'woff2' ),
-		 url( ./assets/font-awesome/fonts/fa-solid-900.woff ) format( 'woff' );
+	src: url( ./assets/font-awesome/fonts/fa-solid-900.woff ) format( 'woff' );
 }
 
 @font-face {
 	font-family: 'Font Awesome 5 Brands';
 	font-style: normal;
 	font-weight: normal;
-	src: url( ./assets/font-awesome/fonts/fa-brands-400.woff2 ) format( 'woff2' ),
-		 url( ./assets/font-awesome/fonts/fa-brands-400.woff ) format( 'woff' );
+	src: url( ./assets/font-awesome/fonts/fa-brands-400.woff ) format( 'woff' );
 }
 
 
