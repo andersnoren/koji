@@ -2,7 +2,7 @@
 
 Koji is a clean and lightweight theme for bloggers. It features a masonry grid on the archive pages, a beautiful and minimal design, Block Editor/Gutenberg support, widget areas in the sidebar and the footer, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, settings for what post meta to display on archive pages and on single posts, icon links to social media pages, custom logo support, a search overlay that can be accessed from any page, and much more.
 
-![Koji](https://github.com/andersnoren/koji/blob/main/screenshot.png)
+![Koji](https://github.com/andersnoren/koji/blob/master/screenshot.jpg)
 
 You can download the latest stable release of Koji [from WordPress.org](https://wordpress.org/themes/koji/).
 
