@@ -76,6 +76,10 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.0.11 (2023-01-16)
+-------------------------
+- Removed height: auto from the iframe element, fixing issues with some embeds.
+
 Version 2.0.10 (2022-05-27)
 -------------------------
 - Double check that we have a valid comments object before using it when filtering comment_text.
