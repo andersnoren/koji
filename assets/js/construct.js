@@ -342,9 +342,13 @@ koji.mobileMenu = {
 
 	focusLoop: function() {
 		$( '*' ).on( 'focus', function() {
-			if ( $( '.mobile-menu-wrapper' ).hasClass( 'active' ) ) {
+			if ( $( '.cover-modal' ).hasClass( 'active' ) ) {
 				if ( $( this ).parents( '#site-content' ).length ) {
-					$( '.nav-toggle' ).focus();
+					if ( $( '.search-overlay' ).hasClass( 'active' ) ) {
+						$( '.search-untoggle' ).focus();
+					} else if ( $( '.mobile-menu-wrapper' ).hasClass( 'active' ) ) {
+						$( '.nav-toggle' ).focus();
+					}
 				}
 			}
 		} );

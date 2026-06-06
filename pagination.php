@@ -27,6 +27,15 @@ if ( ! array_key_exists( 'paged', $query_args ) || 0 == $query_args['paged'] ) {
 // Only show if we have more pages to load
 if ( $query_args['max_num_pages'] > $query_args['paged'] ) :
 
+	// Determine the pagination content type for the load more button.
+	if ( is_search() ) {
+		$load_more_content_type = __( 'search results', 'koji' );
+	} else {
+		$post_type = get_post_type() ?: 'post';
+		$post_type_object = get_post_type_object( $post_type );
+		$load_more_content_type = esc_html( ! empty( $post_type_object->labels->name ) ? strtolower( $post_type_object->labels->name ) : $post_type_object->label );
+	}
+
 	// Encode our modified query
 	$json_query_args = wp_json_encode( $query_args ); ?>
 
@@ -34,9 +43,13 @@ if ( $query_args['max_num_pages'] > $query_args['paged'] ) :
 
 		<div id="pagination" data-query-args="<?php echo esc_attr( $json_query_args ); ?>" data-load-more-target=".load-more-target">
 
-			<button type="button" id="load-more" class="mfs-32 tfs-36 dfs-48 color-dark-gray color-black-hover" aria-controls="posts"><?php _e( 'Load more', 'koji' ); ?></button>
+			<button type="button" id="load-more" class="mfs-32 tfs-36 dfs-48 color-dark-gray color-black-hover" aria-controls="posts">
+				<?php
+				/* Translators: $s = name of the pagination content type, plural (e.g. "posts", "search results") */
+				printf( _x( 'Load more %s', 'Translators: $s = name of the pagination content type, plural (e.g. "posts", "search results")', 'koji' ), $load_more_content_type ); ?>
+			</button>
 
-			<p class="out-of-posts" aria-live="polite" aria-relevant="text"><?php _e( 'Nothing more to load.', 'koji' ); ?></p>
+			<p class="out-of-posts" aria-live="polite" aria-relevant="text"><?php _e( 'No more posts to load.', 'koji' ); ?></p>
 
 			<div class="loading-icon">
 				<?php koji_loading_indicator(); ?>

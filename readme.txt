@@ -2,8 +2,8 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
-Tested up to: 6.4
-Requires PHP: 5.4
+Tested up to: 7.0
+Requires PHP: 7.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -91,6 +91,18 @@ Source: https://feathericons.com
 
 
 == Changelog ==
+
+Version 2.2 (2026-06-06)
+-------------------------
+- Updated Requires PHP to 7.4.
+- Updated Tested up to to 7.0.
+- Updated theme description with the new URL for the theme demo page.
+- Updated to meet new requirements for the accessibility-ready theme tag.
+	- Improved focus styles.
+	- Updated search overlay with a focus loop for keyboard navigation.
+	- Updated heading structure to prevent skipped levels.
+	- Updated the load more button to be more explicit about what's being loaded.
+	- Added the accessibility.txt file to the theme folder.
 
 Version 2.1 (2024-02-23)
 -------------------------

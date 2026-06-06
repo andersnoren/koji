@@ -255,8 +255,8 @@ if ( ! function_exists( 'koji_widget_areas' ) ) :
 			'name' 			=> __( 'Sidebar', 'koji' ),
 			'id' 			=> 'sidebar',
 			'description' 	=> __( 'Widgets in this area will be shown below the main menu.', 'koji' ),
-			'before_title' 	=> '<h2 class="widget-title">',
-			'after_title' 	=> '</h2>',
+			'before_title' 	=> '<p class="widget-title">',
+			'after_title' 	=> '</p>',
 			'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
 			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );

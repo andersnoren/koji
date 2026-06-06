@@ -1,0 +1,30 @@
+=== Accessibility Statement ===
+Short statement about approach to accessibility in the development process.
+
+== Quick Information ==
+Accessibility audit completed: Yes
+Most recent audit date: 2018-12-27
+Tested to standard and conformance level: WCAG 2.2 AA (supports)
+Audited by: @poena
+Accessibility Conformance Report:
+https://themes.trac.wordpress.org/ticket/63366#comment:3
+https://themes.trac.wordpress.org/ticket/63627#comment:3
+
+== Testing Tools and Methodology ==
+
+Koji was originally updated to be accessibility ready in December 2018, after its initial release in September that same year. Testing has been done manually, with the help of tools like HeadingsMap (for checking heading levels) and Stark (for checking accessible color contrasts).
+
+The theme was updated again in June 2026 to meet the updated accessibility requirements. That's also when this file was added.
+
+== Screen Reader Text Class ==
+
+.screen-reader-text
+
+== Accessibility Help Contact ==
+
+Anders Norén
+anders@andersnoren.se
+
+== Where to Report Issues ==
+
+https://github.com/andersnoren/koji
