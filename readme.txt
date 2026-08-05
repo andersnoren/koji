@@ -92,6 +92,11 @@ Source: https://feathericons.com
 
 == Changelog ==
 
+Version 2.2.1 (2026-08-05)
+-------------------------
+- Removed the accessibility-ready theme tag.
+- Removed the accessibility.txt file from the theme folder.
+
 Version 2.2 (2026-06-06)
 -------------------------
 - Updated Requires PHP to 7.4.
